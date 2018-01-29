@@ -54,7 +54,7 @@ class FindDistrict extends Component {
           .then((thingsFromNode) => {
           console.log('representative ID back from backend!!!', thingsFromNode.data);
           this.setState({ 
-          phone: thingsFromNode.data.roles[0].phone,
+          phone: thingsFromNode.data[0].roles[0].phone,
           })
 
           })
