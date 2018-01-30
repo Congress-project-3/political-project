@@ -76,10 +76,12 @@ class SearchSenator extends Component {
     abbrev: "",
     phone: "",
     reelection: "N/A",
-    twitter: "",
-    thumbnail: "",
+    twitter: [],
+    // thumbnail: "",
     contact: "",
-    stateAbbreviation: "--"
+    stateAbbreviation: "--",
+    youtube: [],
+    facebook: []
     
 
       }
@@ -107,20 +109,8 @@ class SearchSenator extends Component {
     });
   };
 
-  handleIndividualSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
-
-    // API.getSenatorbyState(this.state.stateAbbreviation)
-    //   .then((thingsFromNode) => {
-    //     console.log('senator by state back from backend!!!', thingsFromNode.data);
-    //     this.setState({ 
-    //     searchedSenators: thingsFromNode.data,
-    //     byState: true,
-    //     byIndividual: false
-      
-    //     })
-    //   })
-    //   .catch(err => console.log(err));
 
     // ==================================
 
@@ -129,16 +119,64 @@ class SearchSenator extends Component {
       API.getSenatorProfile(this.state.senatorSearch)
       .then((thingsFromNode) => {
         console.log('profile back from backend!!!', thingsFromNode.data);
-        this.setState({ 
-        searchedSenators: thingsFromNode.data,
+        if (thingsFromNode.data[0].youtube_account === null) {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
           byState: false,
           byIndividual: true,
-        // thumbnail: "https://theunitedstates.io/images/congress/450x550/" + thingsFromNode.data.member_id + ".jpg",
-
+          youtube: "CSPAN"
         })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          youtube: thingsFromNode.data[0].youtube_account
+        })
+        }
+        console.log("youtube ", this.state.youtube);
+
+        if (thingsFromNode.data[0].twitter_account === null) {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          twitter: "CSPAN"
+        })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          twitter: thingsFromNode.data[0].twitter_account
+        })
+        }
+        console.log("twitter ", this.state.twitter);
+
+        if (thingsFromNode.data[0].facebook_account === null) {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          facebook: "CSPAN"
+        })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          facebook: thingsFromNode.data[0].facebook_account
+        })
+        }
+        console.log("facebook ", this.state.facebook);
       })
       .catch(err => console.log(err));
     }
+
+  // =======================================================
 
     else if (this.state.duoChange) {
 
@@ -155,44 +193,12 @@ class SearchSenator extends Component {
       .catch(err => console.log(err));
     }
 
-      // =======================================
-
-
-      // API.getSenatorProfile(this.state.senatorSearch)
-      // .then((thingsFromNode) => {
-      //   console.log('profile back from backend!!!', thingsFromNode.data);
-      //   this.setState({ 
-      //   firstName: thingsFromNode.data.first_name,
-      //   lastName: thingsFromNode.data.last_name,
-      //   party: thingsFromNode.data.current_party,
-      //   abbrev: thingsFromNode.data.roles[0].state,
-      //   phone: thingsFromNode.data.roles[0].phone,
-      //   twitter: thingsFromNode.data.twitter_account,
-      //   thumbnail: "https://theunitedstates.io/images/congress/450x550/" + thingsFromNode.data.member_id + ".jpg",
-      //   contact: thingsFromNode.data.roles[0].contact_form
-      //   })
-      // })
-      // .catch(err => console.log(err));
   };
 
-  // handleStateSubmit = event => {
-  //   event.preventDefault();
-
-  //   API.getSenatorbyState(this.state.stateAbbreviation)
-  //     .then((thingsFromNode) => {
-  //       console.log('senator by state back from backend!!!', thingsFromNode.data);
-  //       this.setState({ 
-  //       searchedSenators: thingsFromNode.data,
-  //       byState: true,
-  //       byIndividual: false
-      
-  //       })
-  //     })
-  //     .catch(err => console.log(err));
-
-  // };
-
   // -----------------------------------------------
+
+  // Loads the list of senators into the dropdowns via an
+  // API call
 
   loadSenators = () => {
     API.getSenators()
@@ -237,7 +243,7 @@ render() {
                       
                     <Col size="xs-3 sm-2">
                       <Button
-                        onClick={this.handleIndividualSubmit}
+                        onClick={this.handleSubmit}
                         type="success"
                         className="input-lg"
                       >
@@ -289,9 +295,9 @@ render() {
                         state={senator.roles[0].state}
                         phone={senator.roles[0].phone}
                         reelection={senator.next_election}
-                        twitter={senator.twitter_account}
-                        youtube={senator.youtube_account}
-                        facebook={senator.facebook_account}
+                        twitter={this.state.twitter}
+                        youtube={this.state.youtube}
+                        facebook={this.state.facebook}
                         thumbnail={senator.member_id}
                         contact={senator.roles[0].contact_form}
                       />
