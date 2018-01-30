@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "../Grid";
 import Thumbnail from "../Thumbnail";
-import "./SenatorProfile.css"
+import { Youtube, Twitter, Facebook } from "../Social";
 
 export const SenatorProfilebyState = props => {
   // console.log('these are our senator profile props', props)
@@ -18,19 +18,13 @@ export const SenatorProfilebyState = props => {
     <p>Up for re-election in {props.reelection}</p>
     <Row>
     <Col size="sm-2">
-    <a href={`https://www.youtube.com/user/${props.youtube}`} target="_blank">
-      <img className="social" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-256.png" alt="youtube link" />
-    </a>
+    <Youtube medialink={`https://www.youtube.com/user/${props.youtube}`} />
     </Col>
     <Col size="sm-2">
-    <a href={`https://twitter.com/${props.twitter}`} target="_blank">
-      <img className="social" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-twitter-512.png" alt="twitter link" />
-    </a>
+    <Twitter medialink={`https://twitter.com/${props.twitter}`} />
     </Col>
     <Col size="sm-2">
-    <a href={`https://www.facebook.com/${props.facebook}/`} target="_blank">
-      <img className="social" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/1000px-F_icon.svg.png" alt="facebook link" />
-    </a>
+    <Facebook medialink={`https://www.facebook.com/${props.facebook}/`} />
     </Col>
     </Row>
 

@@ -8,6 +8,7 @@ import { SenatorProfilebyState, SenatorProfile } from "../components/SenatorProf
 import { StateDropdownItem, StateDropdown } from "../components/StateDropdown";
 
 const unitedStates = [
+    { name: 'Search by State', abbreviation: '--'},
     { name: 'Alabama', abbreviation: 'AL'},
     { name: 'Alaska', abbreviation: 'AK'},
     { name: 'Arizona', abbreviation: 'AZ'},
@@ -78,7 +79,7 @@ class SearchSenator extends Component {
     twitter: "",
     thumbnail: "",
     contact: "",
-    stateAbbreviation: "AL"
+    stateAbbreviation: "--"
     
 
       }

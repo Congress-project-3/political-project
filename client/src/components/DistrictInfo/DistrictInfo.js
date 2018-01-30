@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "../Grid";
 import "./DistrictInfo.css";
+import { Youtube, Twitter, Facebook } from "../Social";
 
 
 const DistrictInfo = props => {
@@ -15,19 +16,13 @@ const DistrictInfo = props => {
     <h4>Phone: {props.phone}</h4>
     <Row>
     <Col size="sm-1">
-    <a href={`https://www.youtube.com/user/${props.youtube}`} target="_blank">
-      <img className="social" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-256.png" alt="youtube link" />
-    </a>
+    <Youtube medialink={`https://www.youtube.com/user/${props.youtube}`} />
     </Col>
     <Col size="sm-1">
-    <a href={`https://twitter.com/${props.twitter}`} target="_blank">
-      <img className="social" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-twitter-512.png" alt="twitter link" />
-    </a>
+    <Twitter medialink={`https://twitter.com/${props.twitter}`} />
     </Col>
     <Col size="sm-1">
-    <a href={`https://www.facebook.com/${props.facebook}/`} target="_blank">
-      <img className="social" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/1000px-F_icon.svg.png" alt="facebook link" />
-    </a>
+    <Facebook medialink={`https://www.facebook.com/${props.facebook}/`} />
     </Col>
     </Row>
     </Col>
