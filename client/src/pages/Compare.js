@@ -133,7 +133,7 @@ render() {
                  <Row>
                    <Col size="md-12">
                   {this.state.percent === "" ? (
-                <h1 className="text-center">Select two Senators to compare them!</h1>
+                <h1 className="text-center">Select two Senators to compare their voting records!</h1>
               ) : (
                     <ComparisonPercent 
                      percent={this.state.percent}
