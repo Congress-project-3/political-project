@@ -79,7 +79,9 @@ class SearchSenator extends Component {
     twitter: "",
     thumbnail: "",
     contact: "",
-    stateAbbreviation: "--"
+    stateAbbreviation: "--",
+    youtube: [],
+    facebook: []
     
 
       }
@@ -129,13 +131,59 @@ class SearchSenator extends Component {
       API.getSenatorProfile(this.state.senatorSearch)
       .then((thingsFromNode) => {
         console.log('profile back from backend!!!', thingsFromNode.data);
-        this.setState({ 
-        searchedSenators: thingsFromNode.data,
+        if (thingsFromNode.data[0].youtube_account === null) {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
           byState: false,
           byIndividual: true,
-        // thumbnail: "https://theunitedstates.io/images/congress/450x550/" + thingsFromNode.data.member_id + ".jpg",
-
+          youtube: "CSPAN"
         })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          youtube: thingsFromNode.data[0].youtube_account
+        })
+        }
+        console.log("youtube ", this.state.youtube);
+
+        if (thingsFromNode.data[0].twitter_account === null) {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          twitter: "CSPAN"
+        })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          twitter: thingsFromNode.data[0].twitter_account
+        })
+        }
+        console.log("twitter ", this.state.twitter);
+
+        if (thingsFromNode.data[0].facebook_account === null) {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          facebook: "CSPAN"
+        })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          facebook: thingsFromNode.data[0].facebook_account
+        })
+        }
+        console.log("facebook ", this.state.facebook);
       })
       .catch(err => console.log(err));
     }
