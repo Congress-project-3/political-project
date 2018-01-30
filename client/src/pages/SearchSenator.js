@@ -122,6 +122,11 @@ class SearchSenator extends Component {
         if (thingsFromNode.data[0].youtube_account === null) {
           this.setState({ 
           searchedSenators: thingsFromNode.data,
+<<<<<<< HEAD
+          byState: false,
+          byIndividual: true,
+          youtube: "CSPAN"
+=======
           byState: false,
           byIndividual: true,
           youtube: "CSPAN"
@@ -142,6 +147,35 @@ class SearchSenator extends Component {
           searchedSenators: thingsFromNode.data,
           byState: false,
           byIndividual: true,
+          twitter: "CSPAN"
+>>>>>>> 0dd034094fbc5cba7c737a866069c3f2b54c9039
+        })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+<<<<<<< HEAD
+          youtube: thingsFromNode.data[0].youtube_account
+        })
+        }
+        console.log("youtube ", this.state.youtube);
+
+        if (thingsFromNode.data[0].twitter_account === null) {
+=======
+          twitter: thingsFromNode.data[0].twitter_account
+        })
+        }
+        console.log("twitter ", this.state.twitter);
+
+        if (thingsFromNode.data[0].facebook_account === null) {
+>>>>>>> 0dd034094fbc5cba7c737a866069c3f2b54c9039
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+<<<<<<< HEAD
           twitter: "CSPAN"
         })
         }
@@ -171,6 +205,19 @@ class SearchSenator extends Component {
           facebook: thingsFromNode.data[0].facebook_account
         })
         }
+=======
+          facebook: "CSPAN"
+        })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          facebook: thingsFromNode.data[0].facebook_account
+        })
+        }
+>>>>>>> 0dd034094fbc5cba7c737a866069c3f2b54c9039
         console.log("facebook ", this.state.facebook);
       })
       .catch(err => console.log(err));
