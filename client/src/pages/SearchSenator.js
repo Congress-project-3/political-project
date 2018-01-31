@@ -61,12 +61,15 @@ const unitedStates = [
     { name: 'Wyoming', abbreviation: 'WY' }
 ]
 
+// -------------------------------------------------------------
+
 class SearchSenator extends Component {
   state = {
     byIndividual: false,
     byState: false,
     individualChange: true,
     duoChange: true,
+    senatorsArrived: false,
     senators: [],
     senatorSearch: "",
     searchedSenators: [],
@@ -76,17 +79,21 @@ class SearchSenator extends Component {
     abbrev: "",
     phone: "",
     reelection: "N/A",
-    twitter: "",
-    thumbnail: "",
+    twitter: [],
+    // thumbnail: "",
     contact: "",
-    stateAbbreviation: "--"
-    
+    stateAbbreviation: "--",
+    youtube: [],
+    facebook: []
+  }
 
-      }
+  // ------------------------------------------------------------
 
   componentDidMount() {
     this.loadSenators();
   };
+
+  // ------------------------------------------------------------
 
   handleSenatorChange = event => {
     
@@ -97,6 +104,7 @@ class SearchSenator extends Component {
     })
   }
 
+  // -------------------------------------------------------------
 
   handleAbbrevChange = event => {
     
@@ -107,38 +115,87 @@ class SearchSenator extends Component {
     });
   };
 
-  handleIndividualSubmit = event => {
+  // --------------------------------------------------------------
+
+  handleSubmit = event => {
     event.preventDefault();
 
-    // API.getSenatorbyState(this.state.stateAbbreviation)
-    //   .then((thingsFromNode) => {
-    //     console.log('senator by state back from backend!!!', thingsFromNode.data);
-    //     this.setState({ 
-    //     searchedSenators: thingsFromNode.data,
-    //     byState: true,
-    //     byIndividual: false
-      
-    //     })
-    //   })
-    //   .catch(err => console.log(err));
-
-    // ==================================
+    // ==========================================
 
     if (this.state.individualChange) {
 
       API.getSenatorProfile(this.state.senatorSearch)
       .then((thingsFromNode) => {
         console.log('profile back from backend!!!', thingsFromNode.data);
+
+        // If/else for Youtube link to replace null variables with CSPAN
+        // ======================================
+
+        if (thingsFromNode.data[0].youtube_account === null) {
         this.setState({ 
-        searchedSenators: thingsFromNode.data,
+          searchedSenators: thingsFromNode.data,
           byState: false,
           byIndividual: true,
-        // thumbnail: "https://theunitedstates.io/images/congress/450x550/" + thingsFromNode.data.member_id + ".jpg",
-
+          youtube: "CSPAN"
         })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          youtube: thingsFromNode.data[0].youtube_account
+        })
+        }
+        console.log("youtube ", this.state.youtube);
+
+        // If/else for Twitter link to replace null variables with CSPAN
+        // ===================================
+
+        if (thingsFromNode.data[0].twitter_account === null) {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          twitter: "CSPAN"
+        })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          twitter: thingsFromNode.data[0].twitter_account
+        })
+        }
+        console.log("twitter ", this.state.twitter);
+
+        // If/else for Facebook link to replace null variables with CSPAN
+        // =========================================
+
+        if (thingsFromNode.data[0].facebook_account === null) {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          facebook: "CSPAN"
+        })
+        }
+        else {
+          this.setState({ 
+          searchedSenators: thingsFromNode.data,
+          byState: false,
+          byIndividual: true,
+          facebook: thingsFromNode.data[0].facebook_account
+        })
+        }
+        
+        console.log("facebook ", this.state.facebook);
       })
       .catch(err => console.log(err));
     }
+
+  // =======================================================
 
     else if (this.state.duoChange) {
 
@@ -149,59 +206,32 @@ class SearchSenator extends Component {
         searchedSenators: thingsFromNode.data,
         byState: true,
         byIndividual: false
-      
         })
       })
       .catch(err => console.log(err));
     }
 
-      // =======================================
-
-
-      // API.getSenatorProfile(this.state.senatorSearch)
-      // .then((thingsFromNode) => {
-      //   console.log('profile back from backend!!!', thingsFromNode.data);
-      //   this.setState({ 
-      //   firstName: thingsFromNode.data.first_name,
-      //   lastName: thingsFromNode.data.last_name,
-      //   party: thingsFromNode.data.current_party,
-      //   abbrev: thingsFromNode.data.roles[0].state,
-      //   phone: thingsFromNode.data.roles[0].phone,
-      //   twitter: thingsFromNode.data.twitter_account,
-      //   thumbnail: "https://theunitedstates.io/images/congress/450x550/" + thingsFromNode.data.member_id + ".jpg",
-      //   contact: thingsFromNode.data.roles[0].contact_form
-      //   })
-      // })
-      // .catch(err => console.log(err));
   };
 
-  // handleStateSubmit = event => {
-  //   event.preventDefault();
+  // -------------------------------------------------------------
 
-  //   API.getSenatorbyState(this.state.stateAbbreviation)
-  //     .then((thingsFromNode) => {
-  //       console.log('senator by state back from backend!!!', thingsFromNode.data);
-  //       this.setState({ 
-  //       searchedSenators: thingsFromNode.data,
-  //       byState: true,
-  //       byIndividual: false
-      
-  //       })
-  //     })
-  //     .catch(err => console.log(err));
-
-  // };
-
-  // -----------------------------------------------
+  // Loads the list of senators into the dropdowns via an
+  // API call
 
   loadSenators = () => {
     API.getSenators()
       .then((thingsFromNode) => {
         console.log('got all the senator ids from backend!!!', thingsFromNode.data[0]);
-        this.setState({ senators: thingsFromNode.data, senatorSearch: thingsFromNode.data[0].id })
+        this.setState({ 
+          senators: thingsFromNode.data, 
+          senatorSearch: thingsFromNode.data[0].id,
+          senatorsArrived: true 
+        })
       })
       .catch(err => console.log(err));
   };
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 render() {
     return (
@@ -214,13 +244,16 @@ render() {
                 <Container>
                   <Row>
                     <Col size="xs-6 sm-10">
+                      {this.state.senatorsArrived === false ? (
+                        <p></p>
+                        ) : (
                       <SenatorDropdown
                       value={this.state.senatorSearch} 
                       onChange={this.handleSenatorChange}
                         >
 
                       {this.state.senators.map(senator => {
-                    return (
+                        return (
                       <SenatorDropdownItem
                       name="senatorSearch"
                         key={senator.id}
@@ -230,14 +263,15 @@ render() {
                         party={senator.party}
                         state={senator.state}
                       />
-                    );
-                  })}
+                          );
+                      })}
                       </SenatorDropdown>
+                      )}
                       </Col>
                       
                     <Col size="xs-3 sm-2">
                       <Button
-                        onClick={this.handleIndividualSubmit}
+                        onClick={this.handleSubmit}
                         type="success"
                         className="input-lg"
                       >
@@ -251,12 +285,15 @@ render() {
           </Row>
           <Row>
           <Col size="xs-6 sm-10">
-          <StateDropdown
+          {this.state.senatorsArrived === false ? (
+                    <p></p>
+                ) : (
+            <StateDropdown
               value={this.state.stateAbbreviation} 
               onChange={this.handleAbbrevChange}
             >
             {unitedStates.map(states => {
-                    return (
+                        return (
                       <StateDropdownItem
                       name="stateAbbreviation"
                         key={states.abbreviation}
@@ -264,20 +301,18 @@ render() {
                         abbreviation={states.abbreviation}
                         state={states.name}
                       />
-                    );
+                        );
                   })}
                       </StateDropdown>
+            )}
           </Col>
-                    <Col size="xs-3 sm-2">
-                      
-                    </Col>
           </Row>
           <Row>
             <Col size="xs-12">
             
                 {this.state.byIndividual === false ? (
-                <h1 className="text-center">-</h1>
-              ) : ( 
+                      <p></p>
+                    ) : ( 
                   <div>
                     {this.state.searchedSenators.map(senator => {
                     return (
@@ -289,9 +324,9 @@ render() {
                         state={senator.roles[0].state}
                         phone={senator.roles[0].phone}
                         reelection={senator.next_election}
-                        twitter={senator.twitter_account}
-                        youtube={senator.youtube_account}
-                        facebook={senator.facebook_account}
+                        twitter={this.state.twitter}
+                        youtube={this.state.youtube}
+                        facebook={this.state.facebook}
                         thumbnail={senator.member_id}
                         contact={senator.roles[0].contact_form}
                       />
@@ -307,7 +342,7 @@ render() {
             <Col size="xs-12">
             
                 {this.state.byState === false ? (
-                <h1 className="text-center">--</h1>
+                <p></p>
               ) : ( 
                   <div>
                     {this.state.searchedSenators.map(senator => {

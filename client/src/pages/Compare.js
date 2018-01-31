@@ -15,7 +15,8 @@ class Compare extends Component {
     senatorSearch: "",
     firstSenator: "",
     secondSenator: "",
-    totalVotes: ""
+    totalVotes: "",
+    senatorsArrived: false
   };
 
   componentDidMount() {
@@ -59,7 +60,9 @@ class Compare extends Component {
         console.log('got all the senator ids from backend!!!', thingsFromNode.data);
         this.setState({ senators: thingsFromNode.data, 
           firstSenator: thingsFromNode.data[0].id, 
-          secondSenator: thingsFromNode.data[0].id })
+          secondSenator: thingsFromNode.data[0].id,
+          senatorsArrived: true
+           })
       })
       .catch(err => console.log(err));
   };
@@ -75,6 +78,9 @@ render() {
                 <Container>
                   <Row>
                     <Col size="xs-6 sm-6">
+                      {this.state.senatorsArrived === false ? (
+                                <p></p>
+                        ) : (
                       <SenatorDropdown
                       value={this.state.firstSenator} 
                       onChange={this.handleFirstChange}
@@ -93,6 +99,7 @@ render() {
                     );
                   })}
                       </SenatorDropdown>
+                      )}
                       </Col>
                   
                     <Col size="xs-3 sm-2">
@@ -107,6 +114,9 @@ render() {
                   </Row>
                   <Row>
                   <Col size="xs-6 sm-6">
+                  {this.state.senatorsArrived === false ? (
+                              <p></p>
+                        ) : (
                       <SenatorDropdown
                       value={this.state.secondSenator} 
                       onChange={this.handleSecondChange}
@@ -125,6 +135,7 @@ render() {
                     );
                   })}
                       </SenatorDropdown>
+                      )}
                       </Col>
                   </Row>
                 </Container>
