@@ -15,7 +15,8 @@ class SearchVotes extends Component {
     senatorSearch: "",
     senatorFirstName: "",
     senatorLastName: "",
-    nameArrived: false
+    nameArrived: false,
+    senatorsArrived: false
   };
 
   componentDidMount() {
@@ -43,9 +44,10 @@ class SearchVotes extends Component {
           .then((thingsFromNode) => {
           console.log('profile back from backend!!!', thingsFromNode.data);
           this.setState({ 
-            nameArrived: true,
             senatorFirstName: thingsFromNode.data[0].first_name, 
-            senatorLastName: thingsFromNode.data[0].last_name })
+            senatorLastName: thingsFromNode.data[0].last_name,
+            nameArrived: true 
+          })
       })
 
       })
@@ -58,7 +60,11 @@ class SearchVotes extends Component {
     API.getSenators()
       .then((thingsFromNode) => {
         console.log('got all the senator ids from backend!!!', thingsFromNode.data[0]);
-        this.setState({ senators: thingsFromNode.data, senatorSearch: thingsFromNode.data[0].id })
+        this.setState({ 
+          senators: thingsFromNode.data, 
+          senatorSearch: thingsFromNode.data[0].id,
+          senatorsArrived: true 
+        })
       })
       .catch(err => console.log(err));
   };
@@ -74,6 +80,9 @@ render() {
                 <Container>
                   <Row>
                     <Col size="xs-6 sm-8">
+                      {this.state.senatorsArrived === false ? (
+                                <p></p>
+                        ) : (
                       <SenatorDropdown
                       value={this.state.senatorSearch} 
                       onChange={this.handleChange}
@@ -93,6 +102,7 @@ render() {
                     );
                   })}
                       </SenatorDropdown>
+                      )}
                       </Col>
                       
                     <Col size="xs-6 sm-4">
@@ -109,23 +119,21 @@ render() {
               </form>
             </Col>
           </Row>
-          <Row>
-          <Col size="xs-12">
-          {this.state.nameArrived === false ? (
-                <h1 className="text-center">--</h1>
-              ) : (
-            <SenatorName 
-              firstname={this.state.senatorFirstName}
-              lastname={this.state.senatorLastName}
-            />
-            )}
-          </Col>
-          </Row>
-          <Row>
-            <Col size="xs-12">
-              {!this.state.votes.length ? (
+              {this.state.nameArrived === false ? (
                 <h1 className="text-center">Search a Senator to see their most recent votes!</h1>
               ) : (
+              <div>
+                <Row>
+                  <Col size="xs-12">
+                    <SenatorName 
+                       firstname={this.state.senatorFirstName}
+                        lastname={this.state.senatorLastName}
+                       />
+                   </Col>
+                </Row>
+                
+                <Row>
+                <Col size="xs-12">
                 <VoteList>
                   {this.state.votes.map(vote => {
                     return (
@@ -144,9 +152,10 @@ render() {
                     );
                   })}
                 </VoteList>
+                </Col>
+                </Row>
+                </div>
               )}
-            </Col>
-          </Row>
         </Container>
       </div>
     );
