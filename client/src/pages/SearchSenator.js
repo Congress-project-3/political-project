@@ -61,12 +61,15 @@ const unitedStates = [
     { name: 'Wyoming', abbreviation: 'WY' }
 ]
 
+// -------------------------------------------------------------
+
 class SearchSenator extends Component {
   state = {
     byIndividual: false,
     byState: false,
     individualChange: true,
     duoChange: true,
+    senatorsArrived: false,
     senators: [],
     senatorSearch: "",
     searchedSenators: [],
@@ -82,13 +85,15 @@ class SearchSenator extends Component {
     stateAbbreviation: "--",
     youtube: [],
     facebook: []
-    
+  }
 
-      }
+  // ------------------------------------------------------------
 
   componentDidMount() {
     this.loadSenators();
   };
+
+  // ------------------------------------------------------------
 
   handleSenatorChange = event => {
     
@@ -99,6 +104,7 @@ class SearchSenator extends Component {
     })
   }
 
+  // -------------------------------------------------------------
 
   handleAbbrevChange = event => {
     
@@ -109,18 +115,24 @@ class SearchSenator extends Component {
     });
   };
 
+  // --------------------------------------------------------------
+
   handleSubmit = event => {
     event.preventDefault();
 
-    // ==================================
+    // ==========================================
 
     if (this.state.individualChange) {
 
       API.getSenatorProfile(this.state.senatorSearch)
       .then((thingsFromNode) => {
         console.log('profile back from backend!!!', thingsFromNode.data);
+
+        // If/else for Youtube link to replace null variables with CSPAN
+        // ======================================
+
         if (thingsFromNode.data[0].youtube_account === null) {
-          this.setState({ 
+        this.setState({ 
           searchedSenators: thingsFromNode.data,
           byState: false,
           byIndividual: true,
@@ -137,7 +149,8 @@ class SearchSenator extends Component {
         }
         console.log("youtube ", this.state.youtube);
 
-        // =========================
+        // If/else for Twitter link to replace null variables with CSPAN
+        // ===================================
 
         if (thingsFromNode.data[0].twitter_account === null) {
           this.setState({ 
@@ -157,6 +170,7 @@ class SearchSenator extends Component {
         }
         console.log("twitter ", this.state.twitter);
 
+        // If/else for Facebook link to replace null variables with CSPAN
         // =========================================
 
         if (thingsFromNode.data[0].facebook_account === null) {
@@ -192,7 +206,6 @@ class SearchSenator extends Component {
         searchedSenators: thingsFromNode.data,
         byState: true,
         byIndividual: false
-      
         })
       })
       .catch(err => console.log(err));
@@ -200,7 +213,7 @@ class SearchSenator extends Component {
 
   };
 
-  // -----------------------------------------------
+  // -------------------------------------------------------------
 
   // Loads the list of senators into the dropdowns via an
   // API call
@@ -209,10 +222,16 @@ class SearchSenator extends Component {
     API.getSenators()
       .then((thingsFromNode) => {
         console.log('got all the senator ids from backend!!!', thingsFromNode.data[0]);
-        this.setState({ senators: thingsFromNode.data, senatorSearch: thingsFromNode.data[0].id })
+        this.setState({ 
+          senators: thingsFromNode.data, 
+          senatorSearch: thingsFromNode.data[0].id,
+          senatorsArrived: true 
+        })
       })
       .catch(err => console.log(err));
   };
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 render() {
     return (
@@ -225,13 +244,16 @@ render() {
                 <Container>
                   <Row>
                     <Col size="xs-6 sm-10">
+                      {this.state.senatorsArrived === false ? (
+                        <p></p>
+                        ) : (
                       <SenatorDropdown
                       value={this.state.senatorSearch} 
                       onChange={this.handleSenatorChange}
                         >
 
                       {this.state.senators.map(senator => {
-                    return (
+                        return (
                       <SenatorDropdownItem
                       name="senatorSearch"
                         key={senator.id}
@@ -241,9 +263,10 @@ render() {
                         party={senator.party}
                         state={senator.state}
                       />
-                    );
-                  })}
+                          );
+                      })}
                       </SenatorDropdown>
+                      )}
                       </Col>
                       
                     <Col size="xs-3 sm-2">
@@ -262,12 +285,15 @@ render() {
           </Row>
           <Row>
           <Col size="xs-6 sm-10">
-          <StateDropdown
+          {this.state.senatorsArrived === false ? (
+                    <p></p>
+                ) : (
+            <StateDropdown
               value={this.state.stateAbbreviation} 
               onChange={this.handleAbbrevChange}
             >
             {unitedStates.map(states => {
-                    return (
+                        return (
                       <StateDropdownItem
                       name="stateAbbreviation"
                         key={states.abbreviation}
@@ -275,20 +301,18 @@ render() {
                         abbreviation={states.abbreviation}
                         state={states.name}
                       />
-                    );
+                        );
                   })}
                       </StateDropdown>
+            )}
           </Col>
-                    <Col size="xs-3 sm-2">
-                      
-                    </Col>
           </Row>
           <Row>
             <Col size="xs-12">
             
                 {this.state.byIndividual === false ? (
-                <h1 className="text-center"></h1>
-              ) : ( 
+                      <p></p>
+                    ) : ( 
                   <div>
                     {this.state.searchedSenators.map(senator => {
                     return (
@@ -318,7 +342,7 @@ render() {
             <Col size="xs-12">
             
                 {this.state.byState === false ? (
-                <h1 className="text-center"></h1>
+                <p></p>
               ) : ( 
                   <div>
                     {this.state.searchedSenators.map(senator => {
