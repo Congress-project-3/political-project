@@ -109,23 +109,21 @@ render() {
               </form>
             </Col>
           </Row>
-          <Row>
-          <Col size="xs-12">
-          {this.state.nameArrived === false ? (
-                <h1 className="text-center">--</h1>
-              ) : (
-            <SenatorName 
-              firstname={this.state.senatorFirstName}
-              lastname={this.state.senatorLastName}
-            />
-            )}
-          </Col>
-          </Row>
-          <Row>
-            <Col size="xs-12">
-              {!this.state.votes.length ? (
+              {this.state.nameArrived === false ? (
                 <h1 className="text-center">Search a Senator to see their most recent votes!</h1>
               ) : (
+              <div>
+                <Row>
+                  <Col size="xs-12">
+                    <SenatorName 
+                       firstname={this.state.senatorFirstName}
+                        lastname={this.state.senatorLastName}
+                       />
+                   </Col>
+                </Row>
+                
+                <Row>
+                <Col size="xs-12">
                 <VoteList>
                   {this.state.votes.map(vote => {
                     return (
@@ -144,9 +142,10 @@ render() {
                     );
                   })}
                 </VoteList>
+                </Col>
+                </Row>
+                </div>
               )}
-            </Col>
-          </Row>
         </Container>
       </div>
     );

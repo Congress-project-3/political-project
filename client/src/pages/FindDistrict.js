@@ -17,7 +17,8 @@ class FindDistrict extends Component {
     twitter: "",
     facebook: "",
     youtube: "",
-    phone: ""
+    phone: "",
+    infoArrived: false
       };
 
   
@@ -38,7 +39,8 @@ class FindDistrict extends Component {
         console.log('district back from backend!!!', thingsFromNode.data);
         this.setState({ 
         district: thingsFromNode.data.district.name,
-        districtArr: thingsFromNode.data.district.districtCode.split("-")
+        districtArr: thingsFromNode.data.district.districtCode.split("-"),
+        infoArrived: false
         })
         // console.log("new district state: ", this.state.district)
 
@@ -59,6 +61,7 @@ class FindDistrict extends Component {
           console.log('representative ID back from backend!!!', thingsFromNode.data);
           this.setState({ 
           phone: thingsFromNode.data[0].roles[0].phone,
+          infoArrived: true
           })
 
           })
@@ -105,7 +108,7 @@ render() {
           </Row>
           <Row>
           <Col size="md-12">
-          {this.state.district === "" ? (
+          {this.state.infoArrived === false ? (
                 <h1 className="text-center">Type in your address to find your Congressional District!</h1>
               ) : (
             <DistrictInfo 

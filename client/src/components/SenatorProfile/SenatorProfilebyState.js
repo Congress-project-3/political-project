@@ -15,7 +15,7 @@ export const SenatorProfilebyState = props => {
   	<Col size="xs-6 sm-8">
     <h1>Sen. {props.firstName} {props.lastName}</h1>
     <h3>{props.party}-{props.state}</h3>
-    <p>Up for re-election in {props.reelection}</p>
+    <h4>Up for re-election in {props.reelection}</h4>
     <Row>
     <Col size="sm-2">
     <Youtube medialink={`https://www.youtube.com/user/${props.youtube}`} />

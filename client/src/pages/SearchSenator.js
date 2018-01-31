@@ -287,7 +287,7 @@ render() {
             <Col size="xs-12">
             
                 {this.state.byIndividual === false ? (
-                <h1 className="text-center">-</h1>
+                <h1 className="text-center"></h1>
               ) : ( 
                   <div>
                     {this.state.searchedSenators.map(senator => {
@@ -318,7 +318,7 @@ render() {
             <Col size="xs-12">
             
                 {this.state.byState === false ? (
-                <h1 className="text-center">--</h1>
+                <h1 className="text-center"></h1>
               ) : ( 
                   <div>
                     {this.state.searchedSenators.map(senator => {
