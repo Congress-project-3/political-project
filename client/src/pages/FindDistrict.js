@@ -91,6 +91,7 @@ render() {
                       <Input
                         name="address"
                         value={this.state.address}
+                        type="text"
                         onChange={this.handleInputChange}
                         placeholder="Address"
                       />
@@ -99,6 +100,7 @@ render() {
                       <Input
                         name="city"
                         value={this.state.city}
+                        type="text"
                         onChange={this.handleInputChange}
                         placeholder="City"
                       />
@@ -107,6 +109,7 @@ render() {
                       <Input
                         name="stateAbbrev"
                         value={this.state.stateAbbrev}
+                        type="text"
                         onChange={this.handleInputChange}
                         placeholder="State"
                         size="2"
