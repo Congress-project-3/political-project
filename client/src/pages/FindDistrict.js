@@ -110,7 +110,7 @@ render() {
                         onChange={this.handleInputChange}
                         placeholder="State"
                         size="2"
-                        maxlength="2"
+                        maxLength="2"
                       />
                       </Col>
                     <Col size="xs-3 sm-2">
