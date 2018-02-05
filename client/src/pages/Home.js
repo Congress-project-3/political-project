@@ -8,7 +8,7 @@ const Home = () =>
     <Container style={{ marginTop: 30 }}>
       <Row>
         <Col size="md-12">
-          <h1>Welcome To Senator Stuff!</h1>
+          <h1>Welcome To Blink First!</h1>
         </Col>
       </Row>
       <Row>
