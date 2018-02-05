@@ -8,7 +8,7 @@ const Nav = props =>
     <div className="container-fluid">
       <div className="navbar-header">
         <Link className="navbar-brand" to="/">
-          Senator Stuff
+          Blink First
         </Link>
       </div>
       <ul className="nav navbar-nav">
