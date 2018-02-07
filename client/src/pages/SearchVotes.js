@@ -24,7 +24,6 @@ class SearchVotes extends Component {
   }
 
   handleChange = event => {
-    
     this.setState({
       senatorSearch: event.target.value
     });
@@ -40,6 +39,9 @@ class SearchVotes extends Component {
           votes: thingsFromNode.data.votes,
           nameArrived: false
          })
+
+        // -----------------------------------------------------
+
         API.getSenatorProfile(this.state.senatorSearch)
           .then((thingsFromNode) => {
           console.log('profile back from backend!!!', thingsFromNode.data);
@@ -54,7 +56,7 @@ class SearchVotes extends Component {
       .catch(err => console.log(err));
   };
 
-  // -----------------------------------------------
+  // ----------------------------------------------------------
 
   loadSenators = () => {
     API.getSenators()
@@ -69,6 +71,8 @@ class SearchVotes extends Component {
       .catch(err => console.log(err));
   };
 
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 render() {
     return (
       <div>
@@ -79,7 +83,7 @@ render() {
               <form>
                 <Container>
                   <Row>
-                    <Col size="xs-6 sm-8">
+                    <Col size="xs-12 sm-8">
                       {this.state.senatorsArrived === false ? (
                                 <p></p>
                         ) : (

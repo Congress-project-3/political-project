@@ -22,6 +22,8 @@ handleFormSubmit = event => {
     console.log(this.state.email)
   };
 
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 render() {
   return (
   <div>

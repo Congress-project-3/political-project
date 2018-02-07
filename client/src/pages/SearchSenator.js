@@ -181,8 +181,8 @@ render() {
               <form>
                 <Container>
                   <Row>
-                    <Col size="xs-6 sm-10">
-                      {this.state.senatorsArrived === false ? (
+                    <Col size="xs-12 sm-10">
+                      {!this.state.senatorsArrived ? (
                         <p></p>
                         ) : (
                       <SenatorDropdown
@@ -222,8 +222,8 @@ render() {
             </Col>
           </Row>
           <Row>
-          <Col size="xs-6 sm-10">
-          {this.state.senatorsArrived === false ? (
+          <Col size="xs-12 sm-10">
+          {!this.state.senatorsArrived ? (
                     <p></p>
                 ) : (
             <StateDropdown
@@ -248,7 +248,7 @@ render() {
           <Row>
             <Col size="xs-12">
             
-               {this.state.byIndividual === false ? (
+               {!this.state.byIndividual ? (
                       <p></p>
                     ) : ( 
                   <div>
@@ -279,7 +279,7 @@ render() {
           <Row>
             <Col size="xs-12">
             
-                {this.state.byState === false ? (
+                {!this.state.byState ? (
                 <p></p>
               ) : ( 
                   <div>

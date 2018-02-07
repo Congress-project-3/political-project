@@ -24,14 +24,12 @@ class Compare extends Component {
   }
 
   handleFirstChange = event => {
-    
     this.setState({
       firstSenator: event.target.value
     });
   };
 
   handleSecondChange = event => {
-    
     this.setState({
       secondSenator: event.target.value
     });
@@ -42,7 +40,7 @@ class Compare extends Component {
     event.preventDefault();
 
 
-      // ---------------------------------------
+      // --------------------------------------------------
 
       API.getComparison(this.state.firstSenator, this.state.secondSenator)
       .then((thingsFromNode) => {
@@ -55,6 +53,8 @@ class Compare extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  // ------------------------------------------------------------
 
   loadSenators = () => {
     API.getSenators()
@@ -69,6 +69,9 @@ class Compare extends Component {
       .catch(err => console.log(err));
   };
 
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
 render() {
     return (
       <div>
@@ -80,7 +83,7 @@ render() {
                 <Container>
                   <Row>
                     <Col size="xs-6 sm-6">
-                      {this.state.senatorsArrived === false ? (
+                      {!this.state.senatorsArrived ? (
                                 <p></p>
                         ) : (
                       <SenatorDropdown
@@ -116,7 +119,7 @@ render() {
                   </Row>
                   <Row>
                   <Col size="xs-6 sm-6">
-                  {this.state.senatorsArrived === false ? (
+                  {!this.state.senatorsArrived ? (
                               <p></p>
                         ) : (
                       <SenatorDropdown
@@ -134,8 +137,8 @@ render() {
                         party={senator.party}
                         state={senator.state}
                       />
-                    );
-                  })}
+                        );
+                      })}
                       </SenatorDropdown>
                       )}
                       </Col>
@@ -147,16 +150,15 @@ render() {
                    <Col size="md-12">
                   {this.state.percent === "" ? (
                 <h1 className="text-center">Select two Senators to compare their voting records!</h1>
-              ) : (
+                    ) : (
                     <ComparisonPercent 
                      percent={this.state.percent}
                      total={this.state.totalVotes}
                     />
-              )}
-                    
+                        )}
                    </Col>
-                    </Row>
-                      </Container>
+                  </Row>
+              </Container>
             </Col>
           </Row>
         </Container>
