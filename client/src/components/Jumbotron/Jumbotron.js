@@ -3,7 +3,7 @@ import "./Jumbotron.css";
 
 const Jumbotron = () => (
   <div className="jumbotron text-center">
-    <h1>Senator Stuff</h1>
+    <h1>Blink First</h1>
     <a
       target="_blank"
       rel="noopener noreferrer"
