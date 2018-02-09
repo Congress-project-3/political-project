@@ -10,6 +10,9 @@ import DistrictInfo from "../components/DistrictInfo";
 class FindDistrict extends Component {
   state = {
     addressSearch: "",
+    stateAbbrev: "",
+    city: "",
+    address: "",
     district: "",
     districtArr: [],
     representativeName: "",
@@ -32,15 +35,15 @@ class FindDistrict extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.addressSearch)
+    console.log(this.state.address + " " + this.state.city + " " + this.state.stateAbbrev)
 
-      API.findDistrict(this.state.addressSearch)
+      API.findDistrict(this.state.address + " " + this.state.city + " " + this.state.stateAbbrev)
       .then((thingsFromNode) => {
         console.log('district back from backend!!!', thingsFromNode.data);
         this.setState({ 
+        infoArrived: false,
         district: thingsFromNode.data.district.name,
-        districtArr: thingsFromNode.data.district.districtCode.split("-"),
-        infoArrived: false
+        districtArr: thingsFromNode.data.district.districtCode.split("-")
         })
         // console.log("new district state: ", this.state.district)
 
@@ -74,8 +77,6 @@ class FindDistrict extends Component {
 
   // -----------------------------------------------
 
-  
-
 render() {
     return (
       <div>
@@ -86,12 +87,35 @@ render() {
               <form>
                 <Container>
                   <Row>
+                    <Col size="sm-4">
                       <Input
-                        name="addressSearch"
-                        value={this.state.addressSearch}
+                        name="address"
+                        value={this.state.address}
+                        type="text"
                         onChange={this.handleInputChange}
-                        placeholder="Search for your district"
+                        placeholder="Address"
                       />
+                      </Col>
+                      <Col size="sm-4">
+                      <Input
+                        name="city"
+                        value={this.state.city}
+                        type="text"
+                        onChange={this.handleInputChange}
+                        placeholder="City"
+                      />
+                      </Col>
+                      <Col size="sm-2">
+                      <Input
+                        name="stateAbbrev"
+                        value={this.state.stateAbbrev}
+                        type="text"
+                        onChange={this.handleInputChange}
+                        placeholder="State"
+                        size="2"
+                        maxLength="2"
+                      />
+                      </Col>
                     <Col size="xs-3 sm-2">
                       <Button
                         onClick={this.handleFormSubmit}
