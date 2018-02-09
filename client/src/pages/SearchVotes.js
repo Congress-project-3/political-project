@@ -16,7 +16,8 @@ class SearchVotes extends Component {
     senatorFirstName: "",
     senatorLastName: "",
     nameArrived: false,
-    senatorsArrived: false
+    senatorsArrived: false,
+    idArrived: false
   };
 
   componentDidMount() {
@@ -25,8 +26,9 @@ class SearchVotes extends Component {
 
   handleChange = event => {
     this.setState({
-      senatorSearch: event.target.value
+      senatorSearch: event.target.value,
     });
+    
   };
 
   handleFormSubmit = event => {
@@ -37,7 +39,6 @@ class SearchVotes extends Component {
         console.log('votes back from backend!!!', thingsFromNode.data);
         this.setState({ 
           votes: thingsFromNode.data.votes,
-          nameArrived: false
          })
 
         // -----------------------------------------------------
@@ -48,11 +49,15 @@ class SearchVotes extends Component {
           this.setState({ 
             senatorFirstName: thingsFromNode.data[0].first_name, 
             senatorLastName: thingsFromNode.data[0].last_name,
-            nameArrived: true 
+            nameArrived: true,
+            idArrived: false
           })
+          console.log(this.state.votes[0].member_id)
+      console.log(this.state.senatorLastName)
       })
 
       })
+
       .catch(err => console.log(err));
   };
 
