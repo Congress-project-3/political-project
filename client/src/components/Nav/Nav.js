@@ -4,11 +4,12 @@ import "./Nav.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Nav = props =>
-  <nav className="navbar navbar-default">
+ 
+  <nav className="navbar fixed-top navbar-default">
     <div className="container-fluid">
-      <div className="navbar-header">
+      <div className="navbar-header fixed-top">
         <Link className="navbar-brand" to="/">
-          Senator Stuff
+          Blink First
         </Link>
       </div>
       <ul className="nav navbar-nav">

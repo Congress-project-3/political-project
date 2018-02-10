@@ -47,8 +47,10 @@ class Compare extends Component {
       API.getComparison(this.state.firstSenator, this.state.secondSenator)
       .then((thingsFromNode) => {
         console.log('comparison data back from backend!!!', thingsFromNode.data);
-        this.setState({ percent: thingsFromNode.data.agree_percent,
-        totalVotes: thingsFromNode.data.common_votes})
+        this.setState({ 
+          percent: thingsFromNode.data.agree_percent,
+          totalVotes: thingsFromNode.data.common_votes
+      })
         console.log(this.state.percent);
       })
       .catch(err => console.log(err));

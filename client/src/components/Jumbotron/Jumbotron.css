@@ -1,4 +1,10 @@
 .jumbotron {
   min-height: 300px;
   padding-top: 75px;
+  background-color: white;
+
+}
+
+.jumbotron h1{
+font-family: 'Julius Sans One', sans-serif;
 }
