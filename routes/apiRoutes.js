@@ -23,6 +23,19 @@ router.get("/senators", (req, res) => {
 	    .catch(err => res.status(422).json(err));
 	});
 
+// ============================================================================
+
+router.get("/news", (req, res) => {
+  axios
+    .get('https://newsapi.org/v2/everything?q=Congress&from=2018-02-10&sortBy=popularity&apiKey=78c103f8da834947bda5b373986dbac7')
+    .then(function(thingWeGotBack){
+        console.log("news api results " + thingWeGotBack.data.totalResults);
+        console.log("article examples " + thingWeGotBack.data.articles[0].title)
+        res.json(thingWeGotBack.data.articles);
+    })
+        .catch(err => res.status(422).json(err));
+    });
+
 // ===========================================================================
 
 router.post("/comparesenators", (req, res) => {

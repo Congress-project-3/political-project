@@ -75,7 +75,21 @@ class Compare extends Component {
 render() {
     return (
       <div>
-        <Jumbotron />
+         {this.state.percent === "" ? (
+        <Jumbotron 
+          title="Blink First"
+        />
+        ) : (
+        <Jumbotron 
+          title=""
+        >
+                <ComparisonPercent 
+                     percent={this.state.percent}
+                     total={this.state.totalVotes}
+                    />
+
+                    </Jumbotron>
+        )}
         <Container>
           <Row>
             <Col size="md-12">

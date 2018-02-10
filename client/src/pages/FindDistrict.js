@@ -83,7 +83,25 @@ class FindDistrict extends Component {
 render() {
     return (
       <div>
-        <Jumbotron />
+        {!this.state.infoArrived ? (
+        <Jumbotron 
+          title="Blink First"
+        />
+        ) : (
+        <Jumbotron 
+          title=""
+        >
+                <DistrictInfo 
+              district={this.state.district}
+              rep={this.state.representativeName}
+              twitter={this.state.twitter}
+              facebook={this.state.facebook}
+              youtube={this.state.youtube}
+              phone={this.state.phone}
+            />
+            </Jumbotron>
+
+             )}
         <Container>
           <Row>
             <Col size="md-12">

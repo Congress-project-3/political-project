@@ -8,6 +8,7 @@ export const SenatorProfile = props => {
   // console.log('these are our senator profile props', props)
   return (
     
+    <div className="animated fadeInLeft">
   	<Container>
   	<Row>
   	<Col size="xs-6 sm-3">
@@ -17,21 +18,22 @@ export const SenatorProfile = props => {
     <h1>Sen. {props.firstName} {props.lastName}</h1>
     <h3>{props.party}-{props.state}</h3>
     <h4>Phone: {props.phone}</h4>
-    <a href={props.contact} target="_blank">Contact Form</a>
+    <h4><a href={props.contact} target="_blank">Contact Form</a></h4>
     <Row>
-    <Col size="sm-2">
+    <Col size="sm-4">
     <Youtube medialink={`https://www.youtube.com/user/${props.youtube}`} />
     </Col>
-    <Col size="sm-2">
+    <Col size="sm-4">
     <Twitter medialink={`https://twitter.com/${props.twitter}`} />
     </Col>
-    <Col size="sm-2">
+    <Col size="sm-4">
     <Facebook medialink={`https://www.facebook.com/${props.facebook}/`} />
     </Col>
     </Row>
     </Col>
     </Row>
     </Container>
+    </div>
 
   )
 

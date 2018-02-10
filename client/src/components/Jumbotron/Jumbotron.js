@@ -1,16 +1,10 @@
 import React from "react";
 import "./Jumbotron.css";
 
-const Jumbotron = () => (
+const Jumbotron = props => (
   <div className="jumbotron text-center">
-    <h1>Blink First</h1>
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://projects.propublica.org/api-docs/congress-api/"
-    >
-      Powered by ProPublica
-    </a>
+    <h1>{props.title}</h1>
+    {props.children}
   </div>
 );
 
