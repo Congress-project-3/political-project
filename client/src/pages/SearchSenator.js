@@ -7,6 +7,7 @@ import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropd
 import { SenatorProfilebyState, SenatorProfile } from "../components/SenatorProfile";
 import { StateDropdownItem, StateDropdown } from "../components/StateDropdown";
 
+
 const unitedStates = [
     { name: 'Search by State', abbreviation: '--'},
     { name: 'Alabama', abbreviation: 'AL'},
@@ -310,7 +311,7 @@ render() {
           <Row>
             <Col size="xs-12">
             
-                {this.state.byIndividual === false ? (
+               {this.state.byIndividual === false ? (
                       <p></p>
                     ) : ( 
                   <div>
