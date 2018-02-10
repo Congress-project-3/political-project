@@ -5,7 +5,7 @@ import React from "react";
 // All of the props passed to this component are spread onto the input element
 const Input = props => (
   <div className="form-group">
-    <input className="form-control input-lg" type="text" {...props} />
+    <input className="form-control input-lg" {...props} />
   </div>
 );
 

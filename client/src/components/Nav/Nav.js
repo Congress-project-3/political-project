@@ -13,6 +13,7 @@ const Nav = props =>
         <span className="icon-bar"></span> 
       </button>
         <Link className="navbar-brand" to="/">
+
            <img src={require("./eyenav2.jpg")} id="navLogo" />
         </Link>
       </div>

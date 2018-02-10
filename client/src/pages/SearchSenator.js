@@ -80,12 +80,9 @@ class SearchSenator extends Component {
     abbrev: "",
     phone: "",
     reelection: "N/A",
-    twitter: [],
-    // thumbnail: "",
     contact: "",
     stateAbbreviation: "--",
-    youtube: [],
-    facebook: []
+    searchRendered: false
   }
 
   // ------------------------------------------------------------
@@ -128,70 +125,12 @@ class SearchSenator extends Component {
       API.getSenatorProfile(this.state.senatorSearch)
       .then((thingsFromNode) => {
         console.log('profile back from backend!!!', thingsFromNode.data);
-
-        // If/else for Youtube link to replace null variables with CSPAN
-        // ======================================
-
-        if (thingsFromNode.data[0].youtube_account === null) {
         this.setState({ 
           searchedSenators: thingsFromNode.data,
           byState: false,
           byIndividual: true,
-          youtube: "CSPAN"
+          searchRendered: true
         })
-        }
-        else {
-          this.setState({ 
-          searchedSenators: thingsFromNode.data,
-          byState: false,
-          byIndividual: true,
-          youtube: thingsFromNode.data[0].youtube_account
-        })
-        }
-        console.log("youtube ", this.state.youtube);
-
-        // If/else for Twitter link to replace null variables with CSPAN
-        // ===================================
-
-        if (thingsFromNode.data[0].twitter_account === null) {
-          this.setState({ 
-          searchedSenators: thingsFromNode.data,
-          byState: false,
-          byIndividual: true,
-          twitter: "CSPAN"
-        })
-        }
-        else {
-          this.setState({ 
-          searchedSenators: thingsFromNode.data,
-          byState: false,
-          byIndividual: true,
-          twitter: thingsFromNode.data[0].twitter_account
-        })
-        }
-        console.log("twitter ", this.state.twitter);
-
-        // If/else for Facebook link to replace null variables with CSPAN
-        // =========================================
-
-        if (thingsFromNode.data[0].facebook_account === null) {
-          this.setState({ 
-          searchedSenators: thingsFromNode.data,
-          byState: false,
-          byIndividual: true,
-          facebook: "CSPAN"
-        })
-        }
-        else {
-          this.setState({ 
-          searchedSenators: thingsFromNode.data,
-          byState: false,
-          byIndividual: true,
-          facebook: thingsFromNode.data[0].facebook_account
-        })
-        }
-        
-        console.log("facebook ", this.state.facebook);
       })
       .catch(err => console.log(err));
     }
@@ -206,7 +145,8 @@ class SearchSenator extends Component {
         this.setState({ 
         searchedSenators: thingsFromNode.data,
         byState: true,
-        byIndividual: false
+        byIndividual: false,
+        searchRendered: true
         })
       })
       .catch(err => console.log(err));
@@ -237,15 +177,82 @@ class SearchSenator extends Component {
 render() {
     return (
       <div>
-        <Jumbotron />
+      {!this.state.searchRendered ? (
+        <Jumbotron 
+          title="Blink First"
+        />
+        ) : (
+        <Jumbotron 
+          title=""
+        >
+        {!this.state.byIndividual ? (
+                      <p></p>
+                    ) : ( 
+                    
+                  <div>
+                    {this.state.searchedSenators.map(senator => {
+                    return (
+                      <SenatorProfile
+                        key={senator.member_id}
+                        firstName={senator.first_name}
+                        lastName={senator.last_name}
+                        party={senator.current_party}
+                        state={senator.roles[0].state}
+                        phone={senator.roles[0].phone}
+                        reelection={senator.next_election}
+                        twitter={senator.twitter_account === null ? "CSPAN" : senator.twitter_account}
+                        youtube={senator.youtube_account === null ? "CSPAN" : senator.youtube_account}
+                        facebook={senator.facebook_account === null ? "CSPAN" : senator.facebook_account}
+                        thumbnail={senator.member_id}
+                        contact={senator.roles[0].contact_form}
+                      />
+                    );
+                  })}
+                    </div> 
+                    
+                    )}
+
+
+                    {!this.state.byState ? (
+                <p></p>
+              ) : ( 
+                  <Row>
+                  <div>
+                    {this.state.searchedSenators.map(senator => {
+                    return (
+                      <SenatorProfilebyState
+                        key={senator.id}
+                        firstName={senator.first_name}
+                        lastName={senator.last_name}
+                        party={senator.party}
+                        state={this.state.stateAbbreviation}
+                        // phone={this.state.phone}
+                        reelection={senator.next_election}
+                        twitter={senator.twitter_id === null ? "CSPAN" : senator.twitter_id}
+                        thumbnail={senator.id}
+                        youtube={senator.youtube_id === null ? "CSPAN" : senator.youtube_id}
+                        facebook={senator.facebook_account === null ? "CSPAN" : senator.facebook_account}
+
+                        // contact={this.state.contact}
+                      />
+                    );
+                  })}
+                    </div>
+                    </Row>
+                      
+                    )}
+
+
+                    </Jumbotron>
+        )}
         <Container>
           <Row>
             <Col size="md-12">
               <form>
                 <Container>
                   <Row>
-                    <Col size="xs-6 sm-10">
-                      {this.state.senatorsArrived === false ? (
+                    <Col size="xs-12 sm-10">
+                      {!this.state.senatorsArrived ? (
                         <p></p>
                         ) : (
                       <SenatorDropdown
@@ -285,8 +292,8 @@ render() {
             </Col>
           </Row>
           <Row>
-          <Col size="xs-6 sm-10">
-          {this.state.senatorsArrived === false ? (
+          <Col size="xs-12 sm-10">
+          {!this.state.senatorsArrived ? (
                     <p></p>
                 ) : (
             <StateDropdown
@@ -311,7 +318,7 @@ render() {
           <Row>
             <Col size="xs-12">
             
-               {this.state.byIndividual === false ? (
+               {!this.state.byIndividual ? (
                       <p></p>
                     ) : ( 
                   <div>
@@ -325,9 +332,9 @@ render() {
                         state={senator.roles[0].state}
                         phone={senator.roles[0].phone}
                         reelection={senator.next_election}
-                        twitter={this.state.twitter}
-                        youtube={this.state.youtube}
-                        facebook={this.state.facebook}
+                        twitter={senator.twitter_account === null ? "CSPAN" : senator.twitter_account}
+                        youtube={senator.youtube_account === null ? "CSPAN" : senator.youtube_account}
+                        facebook={senator.facebook_account === null ? "CSPAN" : senator.facebook_account}
                         thumbnail={senator.member_id}
                         contact={senator.roles[0].contact_form}
                       />
@@ -342,7 +349,7 @@ render() {
           <Row>
             <Col size="xs-12">
             
-                {this.state.byState === false ? (
+                {!this.state.byState ? (
                 <p></p>
               ) : ( 
                   <div>
@@ -356,10 +363,10 @@ render() {
                         state={this.state.stateAbbreviation}
                         // phone={this.state.phone}
                         reelection={senator.next_election}
-                        twitter={senator.twitter_id}
+                        twitter={senator.twitter_id === null ? "CSPAN" : senator.twitter_id}
                         thumbnail={senator.id}
-                        youtube={senator.youtube_id}
-                        facebook={senator.facebook_account}
+                        youtube={senator.youtube_id === null ? "CSPAN" : senator.youtube_id}
+                        facebook={senator.facebook_account === null ? "CSPAN" : senator.facebook_account}
 
                         // contact={this.state.contact}
                       />

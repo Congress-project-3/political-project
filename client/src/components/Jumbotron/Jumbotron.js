@@ -1,8 +1,9 @@
 import React from "react";
 import "./Jumbotron.css";
 
-const Jumbotron = () => (
+const Jumbotron = props => (
   <div className="jumbotron text-center">
+
     <h1>
     {/* <img src={require("./logo.jpg")} id="mainglogo" />*/}
     </h1>
@@ -13,6 +14,7 @@ const Jumbotron = () => (
     >
       
     </a>
+  {props.children}
   </div>
 );
 
