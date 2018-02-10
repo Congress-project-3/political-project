@@ -4,8 +4,6 @@ import { Container, Row, Col } from "../components/Grid";
 import Button from "../components/Button";
 import Input from "../components/Input";
 
-
-
 class Home extends Component {
   state = {
     email: ""
@@ -67,6 +65,7 @@ render() {
            </div>
            </Col>
       </Row>
+
         
 
         
@@ -95,5 +94,6 @@ render() {
   );
 };
 };
+
 
 export default Home;
