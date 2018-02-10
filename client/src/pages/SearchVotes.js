@@ -6,6 +6,7 @@ import { VoteList, VoteListItem } from "../components/VoteList";
 import { Container, Row, Col } from "../components/Grid";
 import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropdown";
 import SenatorName from "../components/SenatorName";
+import "../../src/components/SenatorName/sensearch.css";
 
 
 class SearchVotes extends Component {
