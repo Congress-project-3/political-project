@@ -7,6 +7,7 @@ import { Container, Row, Col } from "../components/Grid";
 import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropdown";
 import SenatorName from "../components/SenatorName";
 import "../../src/components/SenatorName/sensearch.css";
+import Logo from "../components/Jumbotron/logo2.jpg";
 
 
 class SearchVotes extends Component {
@@ -84,11 +85,11 @@ render() {
       <div>
         {!this.state.nameArrived ? (
         <Jumbotron 
-          title="Blink First"
+          image={Logo}
         />
         ) : (
         <Jumbotron 
-          title=""
+          image=""
         >
                 <div>
                 <Row>

@@ -5,6 +5,7 @@ import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropdown";
 import ComparisonPercent from "../components/ComparisonPercent";
+import Logo from "../components/Jumbotron/logo2.jpg";
 
 
 class Compare extends Component {
@@ -16,7 +17,7 @@ class Compare extends Component {
     firstSenator: "",
     secondSenator: "",
     totalVotes: "",
-    senatorsArrived: false
+    senatorsArrived: false,
   };
 
   componentDidMount() {
@@ -77,11 +78,11 @@ render() {
       <div>
          {this.state.percent === "" ? (
         <Jumbotron 
-          title="Blink First"
+          image={Logo}
         />
         ) : (
         <Jumbotron 
-          title=""
+        image=""
         >
                 <ComparisonPercent 
                      percent={this.state.percent}
@@ -159,20 +160,7 @@ render() {
                   </Row>
                 </Container>
               </form>
-              <Container>
-                 <Row>
-                   <Col size="md-12">
-                  {this.state.percent === "" ? (
-                <h1 className="text-center">Select two Senators to compare their voting records!</h1>
-                    ) : (
-                    <ComparisonPercent 
-                     percent={this.state.percent}
-                     total={this.state.totalVotes}
-                    />
-                        )}
-                   </Col>
-                  </Row>
-              </Container>
+              
             </Col>
           </Row>
         </Container>

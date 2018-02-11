@@ -6,6 +6,7 @@ import { Container, Row, Col } from "../components/Grid";
 import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropdown";
 import { SenatorProfilebyState, SenatorProfile } from "../components/SenatorProfile";
 import { StateDropdownItem, StateDropdown } from "../components/StateDropdown";
+import Logo from "../components/Jumbotron/logo2.jpg";
 
 
 const unitedStates = [
@@ -179,11 +180,11 @@ render() {
       <div>
       {!this.state.searchRendered ? (
         <Jumbotron 
-          title="Blink First"
+          image={Logo}
         />
         ) : (
         <Jumbotron 
-          title=""
+          image=""
         >
         {!this.state.byIndividual ? (
                       <p></p>
@@ -315,69 +316,8 @@ render() {
             )}
           </Col>
           </Row>
-          <Row>
-            <Col size="xs-12">
-            
-               {!this.state.byIndividual ? (
-                      <p></p>
-                    ) : ( 
-                  <div>
-                    {this.state.searchedSenators.map(senator => {
-                    return (
-                      <SenatorProfile
-                        key={senator.member_id}
-                        firstName={senator.first_name}
-                        lastName={senator.last_name}
-                        party={senator.current_party}
-                        state={senator.roles[0].state}
-                        phone={senator.roles[0].phone}
-                        reelection={senator.next_election}
-                        twitter={senator.twitter_account === null ? "CSPAN" : senator.twitter_account}
-                        youtube={senator.youtube_account === null ? "CSPAN" : senator.youtube_account}
-                        facebook={senator.facebook_account === null ? "CSPAN" : senator.facebook_account}
-                        thumbnail={senator.member_id}
-                        contact={senator.roles[0].contact_form}
-                      />
-                    );
-                  })}
-                    </div>
-                      
-                    )}
-              
-            </Col>
-          </Row>
-          <Row>
-            <Col size="xs-12">
-            
-                {!this.state.byState ? (
-                <p></p>
-              ) : ( 
-                  <div>
-                    {this.state.searchedSenators.map(senator => {
-                    return (
-                      <SenatorProfilebyState
-                        key={senator.id}
-                        firstName={senator.first_name}
-                        lastName={senator.last_name}
-                        party={senator.party}
-                        state={this.state.stateAbbreviation}
-                        // phone={this.state.phone}
-                        reelection={senator.next_election}
-                        twitter={senator.twitter_id === null ? "CSPAN" : senator.twitter_id}
-                        thumbnail={senator.id}
-                        youtube={senator.youtube_id === null ? "CSPAN" : senator.youtube_id}
-                        facebook={senator.facebook_account === null ? "CSPAN" : senator.facebook_account}
-
-                        // contact={this.state.contact}
-                      />
-                    );
-                  })}
-                    </div>
-                      
-                    )}
-              
-            </Col>
-          </Row>
+          
+     
         </Container>
       </div>
     );

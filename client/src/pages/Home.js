@@ -5,6 +5,8 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import API from "../utils/API";
 import { NewsList, NewsListItem } from "../components/NewsList";
+import Logo from "../components/Jumbotron/logo2.jpg";
+
 
 class Home extends Component {
   state = {
@@ -47,7 +49,7 @@ render() {
   return (
   <div>
     <Jumbotron 
-          title="Blink First"
+          image={Logo}
         />
     <Container style={{ marginTop: 30 }}>
      
@@ -69,25 +71,6 @@ render() {
         placeholder="Sign up for our monthly newsletter!"
         />
         </Col>
-      </Row>
-      <Row>
-        <Col size="md-12">
-          <NewsList>
-              {this.state.articles.map(article => {
-                    return (
-                      <NewsListItem
-                      key={article.title}
-                        url={article.url}
-                        title={article.title}
-                        author={article.author}
-                        source={article.source.name}
-                        description={article.description}
-                      />
-                    );
-                  })}
-          </NewsList>
-          
-
         <Col size="md-1">
         <Button
         onClick={this.handleFormSubmit}
@@ -96,7 +79,8 @@ render() {
         >Submit</Button>
         </Col>
         </form>  
-      </Row> 
+      </Row>
+      
 
 
    
@@ -129,6 +113,26 @@ render() {
            <a className= "redLink" href="/finddistrict">Find Your Representative</a>
            </div>
            </Col>
+      </Row> 
+
+      <Row>
+        <Col size="md-7">
+          <NewsList>
+              {this.state.articles.map(article => {
+                    return (
+                      <NewsListItem
+                      key={article.title}
+                        url={article.url}
+                        title={article.title}
+                        author={article.author}
+                        source={article.source.name}
+                        description={article.description}
+                      />
+                    );
+                  })}
+          </NewsList>
+          </Col>
+        
       </Row> 
       
    
