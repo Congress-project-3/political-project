@@ -215,8 +215,8 @@ render() {
 
 
                     {!this.state.byState ? (
-                <p></p>
-              ) : ( 
+                      <p></p>
+                     ) : ( 
                   <Row>
                   <div>
                     {this.state.searchedSenators.map(senator => {
