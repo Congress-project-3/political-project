@@ -10,30 +10,30 @@
   firebase.initializeApp(config);
 
 
-  // var firebaseref = new Firebase("https://blinkfirst-246d9.firebaseapp.com");
+  var firebaseref = new Firebase("https://blinkfirst-246d9.firebaseapp.com");
   var database = firebase.database();
   var auth = firebase.auth();
-  var user = firebase.auth().currentUser;
+  // var user = firebase.auth().currentUser;
   console.log(config);
 
   //Collect User Email
-$("#signupbutton").click(function(event){
+$("#input-lg").click(function(event){
    event.preventDefault();
-emailnew = $("#emailSignup").val();
+emailnew = $("#email").val();
 database.ref().push({ email: emailnew});
 console.log(emailnew);
   });
 
 
   //User signup function
- $('#signupbutton').click(function() {
+ $('#input-lg').click(function() {
 
-        var email = $('#emailSignup');    
+        var email = $('#email');    
               
 
       if(email.val()){
 
-    firebase.auth().createUserWithEmailAndPassword(email.val(), pass.val()).then(function(user){
+    firebase.auth().createUserWithEmailAndPassword(email.val()).then(function(user){
         console.log('everything went fine');
         console.log('user object:' + user);
         //you can save the user data here.
