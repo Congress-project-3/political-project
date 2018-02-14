@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require("./routes/apiRoutes");
+const passportSetup = require("./client/services/passport-setup");
 
 // Serve up static assets
 app.use(express.static("client/build"));
