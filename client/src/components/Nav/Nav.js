@@ -7,10 +7,19 @@ const Nav = props =>
   <nav className="navbar navbar-default">
     <div className="container-fluid">
       <div className="navbar-header">
+      <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span className="icon-bar"></span>
+        <span className="icon-bar"></span>
+        <span className="icon-bar"></span> 
+      </button>
         <Link className="navbar-brand" to="/">
-          Blink First
+
+
+           <img src={require("./eyenav2.jpg")} id="navLogo" />
         </Link>
       </div>
+
+      <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav">
         <li
           className={
@@ -20,11 +29,11 @@ const Nav = props =>
               : ""
           }
         >
-          <Link to="/">About</Link>
+         {/* <Link to="/">About</Link>
         </li>
         <li
           className={window.location.pathname === "/searchvotes" ? "active" : ""}
-        >
+        >*/}
           <Link to="/searchvotes">Search Votes</Link>
         </li>
         <li className={window.location.pathname === "/compare" ? "active" : ""}>
@@ -36,8 +45,16 @@ const Nav = props =>
         <li className={window.location.pathname === "/finddistrict" ? "active" : ""}>
           <Link to="/finddistrict">Find District</Link>
         </li>
+
+      </ul>
+      <ul className="nav navbar-nav navbar-right">
+        <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
+  </div>
+
+
   </nav>;
 
 export default Nav;

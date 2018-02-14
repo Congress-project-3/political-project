@@ -1,16 +1,13 @@
 import React from "react";
 import "./Jumbotron.css";
 
-const Jumbotron = () => (
-  <div className="jumbotron text-center">
-    <h1>Blink First</h1>
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://projects.propublica.org/api-docs/congress-api/"
-    >
-      Powered by ProPublica
-    </a>
+
+
+const Jumbotron = props => (
+  <div className="jumbotron text-center" style={{ backgroundImage: `url(${props.image})` }}>
+
+    
+  {props.children}
   </div>
 );
 

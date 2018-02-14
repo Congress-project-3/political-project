@@ -6,6 +6,8 @@ import { VoteList, VoteListItem } from "../components/VoteList";
 import { Container, Row, Col } from "../components/Grid";
 import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropdown";
 import SenatorName from "../components/SenatorName";
+import "../../src/components/SenatorName/sensearch.css";
+import Logo from "../components/Jumbotron/logo2.jpg";
 
 
 class SearchVotes extends Component {
@@ -16,7 +18,8 @@ class SearchVotes extends Component {
     senatorFirstName: "",
     senatorLastName: "",
     nameArrived: false,
-    senatorsArrived: false
+    senatorsArrived: false,
+    idArrived: false
   };
 
   componentDidMount() {
@@ -24,10 +27,10 @@ class SearchVotes extends Component {
   }
 
   handleChange = event => {
-    
     this.setState({
-      senatorSearch: event.target.value
+      senatorSearch: event.target.value,
     });
+    
   };
 
   handleFormSubmit = event => {
@@ -38,23 +41,29 @@ class SearchVotes extends Component {
         console.log('votes back from backend!!!', thingsFromNode.data);
         this.setState({ 
           votes: thingsFromNode.data.votes,
-          nameArrived: false
          })
+
+        // -----------------------------------------------------
+
         API.getSenatorProfile(this.state.senatorSearch)
           .then((thingsFromNode) => {
           console.log('profile back from backend!!!', thingsFromNode.data);
           this.setState({ 
             senatorFirstName: thingsFromNode.data[0].first_name, 
             senatorLastName: thingsFromNode.data[0].last_name,
-            nameArrived: true 
+            nameArrived: true,
+            idArrived: false
           })
+          console.log(this.state.votes[0].member_id)
+      console.log(this.state.senatorLastName)
       })
 
       })
+
       .catch(err => console.log(err));
   };
 
-  // -----------------------------------------------
+  // ----------------------------------------------------------
 
   loadSenators = () => {
     API.getSenators()
@@ -69,17 +78,62 @@ class SearchVotes extends Component {
       .catch(err => console.log(err));
   };
 
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 render() {
     return (
       <div>
-        <Jumbotron />
+        {!this.state.nameArrived ? (
+        <Jumbotron 
+          image={Logo}
+        />
+        ) : (
+        <Jumbotron 
+          image=""
+        >
+                <div>
+                <Row>
+                  <Col size="xs-12">
+                    <SenatorName 
+                       firstname={this.state.senatorFirstName}
+                        lastname={this.state.senatorLastName}
+                       />
+                   </Col>
+                </Row>
+                
+                <Row>
+                <Col size="xs-12">
+                <VoteList>
+                  {this.state.votes.map(vote => {
+                    return (
+                      <VoteListItem
+                        key={vote.roll_call}
+                        rollCallNum={vote.roll_call}
+                        description={vote.description}
+                        date={vote.date}
+                        position={vote.position}
+                        question={vote.question}
+                        billNum={vote.bill.number}
+                        totalYes={vote.total.yes}
+                        totalNo={vote.total.no}
+                        totalNotVoting={vote.total.not_voting}
+                      />
+                    );
+                  })}
+                </VoteList>
+                </Col>
+                </Row>
+                </div>
+
+                    </Jumbotron>
+        )}
         <Container>
           <Row>
             <Col size="md-12">
               <form>
                 <Container>
                   <Row>
-                    <Col size="xs-6 sm-8">
+                    <Col size="xs-12 sm-8">
                       {this.state.senatorsArrived === false ? (
                                 <p></p>
                         ) : (

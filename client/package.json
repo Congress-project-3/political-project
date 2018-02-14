@@ -1,13 +1,15 @@
 {
-  "name": "mern",
+  "name": "blink-first",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "congressional-district-finder": "^0.2.0",
+    "countup.js": "^1.9.3",
     "geolib": "^2.0.24",
     "house-gov-page-scraper": "^0.1.1",
     "react": "^16.0.0",
+    "react-countup": "^3.0.2",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",

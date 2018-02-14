@@ -5,11 +5,15 @@ import Input from "../components/Input";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import DistrictInfo from "../components/DistrictInfo";
+import Logo from "../components/Jumbotron/logo2.jpg";
 
 
 class FindDistrict extends Component {
   state = {
     addressSearch: "",
+    stateAbbrev: "",
+    city: "",
+    address: "",
     district: "",
     districtArr: [],
     representativeName: "",
@@ -21,7 +25,6 @@ class FindDistrict extends Component {
     infoArrived: false
       };
 
-  
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -32,17 +35,19 @@ class FindDistrict extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.addressSearch)
+    console.log(this.state.address + " " + this.state.city + " " + this.state.stateAbbrev)
 
-      API.findDistrict(this.state.addressSearch)
+      API.findDistrict(this.state.address + " " + this.state.city + " " + this.state.stateAbbrev)
       .then((thingsFromNode) => {
         console.log('district back from backend!!!', thingsFromNode.data);
         this.setState({ 
+        infoArrived: false,
         district: thingsFromNode.data.district.name,
-        districtArr: thingsFromNode.data.district.districtCode.split("-"),
-        infoArrived: false
+        districtArr: thingsFromNode.data.district.districtCode.split("-")
         })
         // console.log("new district state: ", this.state.district)
+
+        // ---------------------------------------------------
 
         API.searchDistrict(this.state.districtArr[0], this.state.districtArr[1])
           .then((thingsFromNode) => {
@@ -55,6 +60,8 @@ class FindDistrict extends Component {
           youtube: thingsFromNode.data.youtube_id
           })
           // console.log(this.state.representativeID);
+
+          // ----------------------------------------------------
 
             API.getSenatorProfile(this.state.representativeID)
           .then((thingsFromNode) => {
@@ -72,26 +79,65 @@ class FindDistrict extends Component {
       .catch(err => console.log(err));
   };
 
-  // -----------------------------------------------
-
-  
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 render() {
     return (
       <div>
-        <Jumbotron />
+        {!this.state.infoArrived ? (
+        <Jumbotron 
+          image={Logo}
+        />
+        ) : (
+        <Jumbotron 
+          image=""
+        >
+                <DistrictInfo 
+              district={this.state.district}
+              rep={this.state.representativeName}
+              twitter={this.state.twitter}
+              facebook={this.state.facebook}
+              youtube={this.state.youtube}
+              phone={this.state.phone}
+            />
+            </Jumbotron>
+
+             )}
         <Container>
           <Row>
             <Col size="md-12">
               <form>
                 <Container>
                   <Row>
+                    <Col size="sm-4">
                       <Input
-                        name="addressSearch"
-                        value={this.state.addressSearch}
+                        name="address"
+                        value={this.state.address}
+                        type="text"
                         onChange={this.handleInputChange}
-                        placeholder="Search for your district"
+                        placeholder="Address"
                       />
+                      </Col>
+                      <Col size="sm-4">
+                      <Input
+                        name="city"
+                        value={this.state.city}
+                        type="text"
+                        onChange={this.handleInputChange}
+                        placeholder="City"
+                      />
+                      </Col>
+                      <Col size="sm-2">
+                      <Input
+                        name="stateAbbrev"
+                        value={this.state.stateAbbrev}
+                        type="text"
+                        onChange={this.handleInputChange}
+                        placeholder="State"
+                        size="2"
+                        maxLength="2"
+                      />
+                      </Col>
                     <Col size="xs-3 sm-2">
                       <Button
                         onClick={this.handleFormSubmit}
@@ -106,23 +152,7 @@ render() {
               </form>
             </Col>
           </Row>
-          <Row>
-          <Col size="md-12">
-          {this.state.infoArrived === false ? (
-                <h1 className="text-center">Type in your address to find your Congressional District!</h1>
-              ) : (
-            <DistrictInfo 
-              district={this.state.district}
-              rep={this.state.representativeName}
-              twitter={this.state.twitter}
-              facebook={this.state.facebook}
-              youtube={this.state.youtube}
-              phone={this.state.phone}
-            />
-
-            )}
-              </Col>
-          </Row>
+          
         </Container>
       </div>
     );
