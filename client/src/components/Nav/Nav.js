@@ -14,6 +14,7 @@ const Nav = props =>
       </button>
         <Link className="navbar-brand" to="/">
 
+
            <img src={require("./eyenav2.jpg")} id="navLogo" />
         </Link>
       </div>
