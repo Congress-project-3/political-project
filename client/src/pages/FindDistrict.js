@@ -5,6 +5,7 @@ import Input from "../components/Input";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import DistrictInfo from "../components/DistrictInfo";
+import Logo from "../components/Jumbotron/logo2.jpg";
 
 
 class FindDistrict extends Component {
@@ -85,11 +86,11 @@ render() {
       <div>
         {!this.state.infoArrived ? (
         <Jumbotron 
-          title="Blink First"
+          image={Logo}
         />
         ) : (
         <Jumbotron 
-          title=""
+          image=""
         >
                 <DistrictInfo 
               district={this.state.district}
@@ -151,23 +152,7 @@ render() {
               </form>
             </Col>
           </Row>
-          <Row>
-          <Col size="md-12">
-          {!this.state.infoArrived ? (
-                <h1 className="text-center">Type in your address to find your Congressional District!</h1>
-              ) : (
-            <DistrictInfo 
-              district={this.state.district}
-              rep={this.state.representativeName}
-              twitter={this.state.twitter}
-              facebook={this.state.facebook}
-              youtube={this.state.youtube}
-              phone={this.state.phone}
-            />
-
-            )}
-              </Col>
-          </Row>
+          
         </Container>
       </div>
     );

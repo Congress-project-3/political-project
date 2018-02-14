@@ -5,6 +5,7 @@ import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropdown";
 import ComparisonPercent from "../components/ComparisonPercent";
+import Logo from "../components/Jumbotron/logo2.jpg";
 
 
 class Compare extends Component {
@@ -16,7 +17,13 @@ class Compare extends Component {
     firstSenator: "",
     secondSenator: "",
     totalVotes: "",
-    senatorsArrived: false
+    senatorsArrived: false,
+    searchRendered: false,
+    FirstSenatorFirstName: "",
+    FirstSenatorLastName: "",
+    SecondSenatorFirstName: "",
+    SecondSenatorLastName: "",
+    namesArrived: false
   };
 
   componentDidMount() {
@@ -25,19 +32,25 @@ class Compare extends Component {
 
   handleFirstChange = event => {
     this.setState({
-      firstSenator: event.target.value
+      firstSenator: event.target.value,
+      // percent: ""
     });
   };
 
   handleSecondChange = event => {
     this.setState({
-      secondSenator: event.target.value
+      secondSenator: event.target.value,
+      // percent: ""
     });
   };
 
   handleFormSubmit = event => {
     // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
+    this.setState({
+      percent: "",
+      namesArrived: false
+    });
 
 
       // --------------------------------------------------
@@ -46,10 +59,35 @@ class Compare extends Component {
       .then((thingsFromNode) => {
         console.log('comparison data back from backend!!!', thingsFromNode.data);
         this.setState({ 
+          searchRendered: true,
           percent: thingsFromNode.data.agree_percent,
           totalVotes: thingsFromNode.data.common_votes
       })
         console.log(this.state.percent);
+
+        API.getSenatorProfile(this.state.firstSenator)
+          .then((thingsFromNode) => {
+          console.log('first profile back from backend!!!', thingsFromNode.data);
+          this.setState({ 
+            FirstSenatorFirstName: thingsFromNode.data[0].first_name, 
+            FirstSenatorLastName: thingsFromNode.data[0].last_name,
+          })
+      console.log(this.state.senatorLastName)
+
+
+            API.getSenatorProfile(this.state.secondSenator)
+          .then((thingsFromNode) => {
+          console.log(' second profile back from backend!!!', thingsFromNode.data);
+          this.setState({ 
+            SecondSenatorFirstName: thingsFromNode.data[0].first_name, 
+            SecondSenatorLastName: thingsFromNode.data[0].last_name,
+            namesArrived: true
+          })
+      console.log(this.state.senatorLastName)
+      })
+
+      })
+
       })
       .catch(err => console.log(err));
   };
@@ -75,18 +113,30 @@ class Compare extends Component {
 render() {
     return (
       <div>
-         {this.state.percent === "" ? (
+         {!this.state.searchRendered ? (
         <Jumbotron 
-          title="Blink First"
+          image={Logo}
         />
         ) : (
         <Jumbotron 
-          title=""
+        image=""
         >
-                <ComparisonPercent 
+        {!this.state.namesArrived ? (
+                      <p></p>
+                    ) : ( 
+                    
+                  <div>
+                    <ComparisonPercent 
                      percent={this.state.percent}
                      total={this.state.totalVotes}
+                     first_firstname={this.state.FirstSenatorFirstName}
+                     first_lastname={this.state.FirstSenatorLastName}
+                     second_firstname={this.state.SecondSenatorFirstName}
+                     second_lastname={this.state.SecondSenatorLastName}
                     />
+                    </div> 
+                    
+                    )}
 
                     </Jumbotron>
         )}
@@ -159,20 +209,7 @@ render() {
                   </Row>
                 </Container>
               </form>
-              <Container>
-                 <Row>
-                   <Col size="md-12">
-                  {this.state.percent === "" ? (
-                <h1 className="text-center">Select two Senators to compare their voting records!</h1>
-                    ) : (
-                    <ComparisonPercent 
-                     percent={this.state.percent}
-                     total={this.state.totalVotes}
-                    />
-                        )}
-                   </Col>
-                  </Row>
-              </Container>
+              
             </Col>
           </Row>
         </Container>

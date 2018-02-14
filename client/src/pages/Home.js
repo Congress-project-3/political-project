@@ -4,11 +4,14 @@ import { Container, Row, Col } from "../components/Grid";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import API from "../utils/API";
+import { NewsList, NewsListItem } from "../components/NewsList";
+import Logo from "../components/Jumbotron/logo2.jpg";
 
 
 class Home extends Component {
   state = {
-    email: ""
+    email: "",
+    articles: []
   }
 
   componentDidMount() {
@@ -31,6 +34,10 @@ handleFormSubmit = event => {
     API.getHomepageNews()
       .then((thingsFromNode) => {
         console.log('got all the news from backend!!!', thingsFromNode.data);
+        this.setState({
+          articles: thingsFromNode.data
+        });
+      console.log('article state statetetaieygfw', this.state.articles);
 
       })
       .catch(err => console.log(err));
@@ -42,7 +49,7 @@ render() {
   return (
   <div>
     <Jumbotron 
-          title="Blink First"
+          image={Logo}
         />
     <Container style={{ marginTop: 30 }}>
      
@@ -72,7 +79,8 @@ render() {
         >Submit</Button>
         </Col>
         </form>  
-      </Row> 
+      </Row>
+      
 
 
    
@@ -105,6 +113,26 @@ render() {
            <a className= "redLink" href="/finddistrict">Find Your Representative</a>
            </div>
            </Col>
+      </Row> 
+
+      <Row>
+        <Col size="md-7">
+          <NewsList>
+              {this.state.articles.map(article => {
+                    return (
+                      <NewsListItem
+                      key={article.title}
+                        url={article.url}
+                        title={article.title}
+                        author={article.author}
+                        source={article.source.name}
+                        description={article.description}
+                      />
+                    );
+                  })}
+          </NewsList>
+          </Col>
+        
       </Row> 
       
    
