@@ -1,6 +1,8 @@
 import React from "react";
 import CountUp from "react-countup";
 import { Row, Col } from "../Grid";
+import Thumbnail from "../Thumbnail";
+import "./ComparisonPercent.css";
 
 
 const ComparisonPercent = props => {
@@ -10,9 +12,16 @@ const ComparisonPercent = props => {
     <Row>
       <Col size="xs-6">
         <h3>Sen. {props.first_firstname} {props.first_lastname}</h3>
+        <Col size="xs-6">
+        <Thumbnail className="thumbnail" src={`"https://theunitedstates.io/images/congress/450x550/${props.firstThumbnail}.jpg"`} />
+        </Col>
+
       </Col>
       <Col size="xs-6">
         <h3>Sen. {props.second_firstname} {props.second_lastname}</h3>
+        <Col size="xs-6">
+        <Thumbnail className="thumbnail" src={`"https://theunitedstates.io/images/congress/450x550/${props.secondThumbnail}.jpg"`} />
+        </Col>
       </Col>
     </Row>
     <Row>
