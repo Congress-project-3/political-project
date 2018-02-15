@@ -24,7 +24,7 @@ export default {
   getSenatorbyState: function(state) {
     return axios.post("/api/searchsenatorbystate", {state: state});
 },
-getAuthentication: function() {
-  return axios.get("/api/google");
+  getAuthentication: function() {
+     return axios.get("/api/google");
 }
 }

@@ -6,9 +6,10 @@ passport.use(
     new GoogleStrategy({
         //options for google strat
 
-        callbackURL: '/auth/google/redirect',
-        clientID: '277006327585-egqk98evf2erij05f6e4q5epc3vrjhnb.apps.googleusercontent.com',
-        clientSecret: 'uTKWX86mRAlK1dUeJuqcG65n'
+        
+        callbackURL: '/searchvotes',
+        clientID: '277006327585-jfr382jo05ms612f9cd4do7vf5h3f67b.apps.googleusercontent.com',
+        clientSecret: 'MaALyUzv5gFBAuPXjpjIYYsP'
 
 
     },()=>{
