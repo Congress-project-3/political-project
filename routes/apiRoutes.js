@@ -136,7 +136,7 @@ router.post("/searchsenatorbystate", (req, res) => {
 //===========================================================
 
 router.get('/google',passport.authenticate('google',{
-	scope: ['profile']
+	scope: ['email']
 }));
 
 module.exports = router;
