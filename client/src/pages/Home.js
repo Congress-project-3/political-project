@@ -58,8 +58,12 @@ render() {
 
         <Col size="md-7">
         <div className="funcList">
-          <h2 className="sec1">Search a senator to see all of their most recent votes.</h2>
-           <a className= "redLink" href="/searchvotes">Search Votes</a>
+          <ul>
+           <li><a className= "redLink" href="/searchvotes">Search a senator to see all of their most recent votes.</a></li>
+           <li><a className= "redLink" href="/compare">See the per centage rate of agreement between any two Senators.</a></li>
+           <li><a className= "redLink" href="/searsenator">Find Senators by name or state to access their personal social media accounts.</a></li>
+           <li><a className= "redLink" href="/finddistrict">Use your address to find out who your local representative is.</a></li>
+           </ul>
            </div>
            </Col>
         <form id="emailthing">
@@ -86,7 +90,7 @@ render() {
 
 
    
-       <Row>
+{/*       <Row>
         <Col size="md-7">
         <div className="funcList">
           <h2 className="sec1">See the per centage rate of agreement between any two Senators.</h2>
@@ -115,6 +119,7 @@ render() {
            <a className= "redLink" href="/finddistrict">Find Your Representative</a>
            </div>
            </Col>
+
       </Row> 
 
       <Row>
@@ -137,6 +142,7 @@ render() {
           </Col>
         
       </Row> 
+
       
    
     </Container>
