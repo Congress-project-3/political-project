@@ -6,7 +6,7 @@ import "./Thumbnail.css";
 // The "role" and "aria label" are there to identify the element's purpose as an image for accessibility purposes
 const Thumbnail = props => (
   <div
-    className="thumbnail"
+    className="thumbnail animated fadeInLeft"
     role="img"
     aria-label="Senator Image"
     style={{

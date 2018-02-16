@@ -7,7 +7,7 @@ import { Youtube, Twitter, Facebook } from "../Social";
 const DistrictInfo = props => {
   // console.log('these are our district info props', props)
   return (
-  	<div>
+  	<div className="animated fadeInLeft">
   	<Container>
   	<Row>
   	<Col size="sm-12">
@@ -15,13 +15,13 @@ const DistrictInfo = props => {
     <h3>{props.district} District</h3>
     <h4>Phone: {props.phone}</h4>
     <Row>
-    <Col size="sm-1">
+    <Col size="sm-2">
     <Youtube medialink={`https://www.youtube.com/user/${props.youtube}`} />
     </Col>
-    <Col size="sm-1">
+    <Col size="sm-2">
     <Twitter medialink={`https://twitter.com/${props.twitter}`} />
     </Col>
-    <Col size="sm-1">
+    <Col size="sm-2">
     <Facebook medialink={`https://www.facebook.com/${props.facebook}/`} />
     </Col>
     </Row>

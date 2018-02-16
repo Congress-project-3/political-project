@@ -5,6 +5,7 @@ import Input from "../components/Input";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import DistrictInfo from "../components/DistrictInfo";
+import Logo from "../components/Jumbotron/logo2.jpg";
 
 
 class FindDistrict extends Component {
@@ -24,7 +25,6 @@ class FindDistrict extends Component {
     infoArrived: false
       };
 
-  
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -47,6 +47,8 @@ class FindDistrict extends Component {
         })
         // console.log("new district state: ", this.state.district)
 
+        // ---------------------------------------------------
+
         API.searchDistrict(this.state.districtArr[0], this.state.districtArr[1])
           .then((thingsFromNode) => {
           console.log('representative back from backend!!!', thingsFromNode.data);
@@ -58,6 +60,8 @@ class FindDistrict extends Component {
           youtube: thingsFromNode.data.youtube_id
           })
           // console.log(this.state.representativeID);
+
+          // ----------------------------------------------------
 
             API.getSenatorProfile(this.state.representativeID)
           .then((thingsFromNode) => {
@@ -75,12 +79,30 @@ class FindDistrict extends Component {
       .catch(err => console.log(err));
   };
 
-  // -----------------------------------------------
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 render() {
     return (
       <div>
-        <Jumbotron />
+        {!this.state.infoArrived ? (
+        <Jumbotron 
+          image={Logo}
+        />
+        ) : (
+        <Jumbotron 
+          image=""
+        >
+                <DistrictInfo 
+              district={this.state.district}
+              rep={this.state.representativeName}
+              twitter={this.state.twitter}
+              facebook={this.state.facebook}
+              youtube={this.state.youtube}
+              phone={this.state.phone}
+            />
+            </Jumbotron>
+
+             )}
         <Container>
           <Row>
             <Col size="md-12">
@@ -130,23 +152,7 @@ render() {
               </form>
             </Col>
           </Row>
-          <Row>
-          <Col size="md-12">
-          {this.state.infoArrived === false ? (
-                <h1 className="text-center">Type in your address to find your Congressional District!</h1>
-              ) : (
-            <DistrictInfo 
-              district={this.state.district}
-              rep={this.state.representativeName}
-              twitter={this.state.twitter}
-              facebook={this.state.facebook}
-              youtube={this.state.youtube}
-              phone={this.state.phone}
-            />
-
-            )}
-              </Col>
-          </Row>
+          
         </Container>
       </div>
     );
