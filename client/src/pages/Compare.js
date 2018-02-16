@@ -52,6 +52,13 @@ class Compare extends Component {
       namesArrived: false
     });
 
+    if (this.state.firstSenator === this.state.secondSenator) {
+      alert("Please choose two different senators!")
+    }
+    else {
+
+    
+
 
       // --------------------------------------------------
 
@@ -90,6 +97,7 @@ class Compare extends Component {
 
       })
       .catch(err => console.log(err));
+    }
   };
 
   // ------------------------------------------------------------
@@ -133,6 +141,8 @@ render() {
                      first_lastname={this.state.FirstSenatorLastName}
                      second_firstname={this.state.SecondSenatorFirstName}
                      second_lastname={this.state.SecondSenatorLastName}
+                     firstThumbnail={this.state.firstSenator}
+                     secondThumbnail={this.state.secondSenator}
                     />
                     </div> 
                     
@@ -177,7 +187,7 @@ render() {
                         type="success"
                         className="input-lg"
                       >
-                        Search
+                        Compare
                       </Button>
                     </Col>
                   </Row>

@@ -8,6 +8,8 @@ import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropd
 import SenatorName from "../components/SenatorName";
 import "../../src/components/SenatorName/sensearch.css";
 import Logo from "../components/Jumbotron/logo2.jpg";
+import Dropdown from "semantic-ui-react";
+
 
 
 class SearchVotes extends Component {
@@ -173,43 +175,7 @@ render() {
               </form>
             </Col>
           </Row>
-              {this.state.nameArrived === false ? (
-                <h1 className="text-center">Search a Senator to see their most recent votes!</h1>
-              ) : (
-              <div>
-                <Row>
-                  <Col size="xs-12">
-                    <SenatorName 
-                       firstname={this.state.senatorFirstName}
-                        lastname={this.state.senatorLastName}
-                       />
-                   </Col>
-                </Row>
-                
-                <Row>
-                <Col size="xs-12">
-                <VoteList>
-                  {this.state.votes.map(vote => {
-                    return (
-                      <VoteListItem
-                        key={vote.roll_call}
-                        rollCallNum={vote.roll_call}
-                        description={vote.description}
-                        date={vote.date}
-                        position={vote.position}
-                        question={vote.question}
-                        billNum={vote.bill.number}
-                        totalYes={vote.total.yes}
-                        totalNo={vote.total.no}
-                        totalNotVoting={vote.total.not_voting}
-                      />
-                    );
-                  })}
-                </VoteList>
-                </Col>
-                </Row>
-                </div>
-              )}
+             
         </Container>
       </div>
     );

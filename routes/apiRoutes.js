@@ -1,6 +1,7 @@
 const axios = require("axios");
 const router = require("express").Router();
 const finder = require('congressional-district-finder');
+const passport = require('passport');
 const config = {
   headers: { 'X-API-KEY': 'WJ3l3qDKeksPtMBaQps1cGVJ1b4MT1ZqcP9C7Q3w'},
 };
@@ -27,7 +28,7 @@ router.get("/senators", (req, res) => {
 
 router.get("/news", (req, res) => {
   axios
-    .get('https://newsapi.org/v2/everything?q=Senate&from=2018-02-10&sortBy=popularity&apiKey=78c103f8da834947bda5b373986dbac7')
+    .get('https://newsapi.org/v2/everything?q=Congress+Votes&from=2018-02-10&sortBy=popularity&apiKey=78c103f8da834947bda5b373986dbac7')
     .then(function(thingWeGotBack){
         console.log("news api results " + thingWeGotBack.data.totalResults);
         console.log("article examples " + thingWeGotBack.data.articles[0].title)
@@ -132,5 +133,10 @@ router.post("/searchsenatorbystate", (req, res) => {
 	    .catch(err => res.status(422).json(err));
 	});       
 
+//===========================================================
+
+router.get('/google',passport.authenticate('google',{
+	scope: ['email']
+}));
 
 module.exports = router;

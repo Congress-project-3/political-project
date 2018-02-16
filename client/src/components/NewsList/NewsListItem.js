@@ -9,9 +9,8 @@ export const NewsListItem = props => {
     <Container>
         <Row>
           <Col size="xs-5">
-          <h2><a href={props.url} target="_blank">{props.title}</a></h2>
+          <h3><a href={props.url} target="_blank">{props.title}</a></h3>
           
-            <p>by {props.author}</p>
             <p>{props.source}</p>
             <p>{props.description}</p>
           </Col>
