@@ -90,37 +90,7 @@ render() {
 
 
    
-{/*       <Row>
-        <Col size="md-7">
-        <div className="funcList">
-          <h2 className="sec1">See the per centage rate of agreement between any two Senators.</h2>
-           <a className= "redLink" href="/compare">Check Agreement Rate</a>
-           </div>
-           </Col>
-      </Row>
-
-        
-
-        
-        <Row>
-        <Col size="md-7">
-        <div className="funcList">
-          <h2 className="sec1">Find Senators by name or state to access their personal social media accounts.</h2>
-           <a className= "redLink" href="/searchsenator">Find Your Senator</a>
-           </div>
-           </Col>
-      </Row> 
-  
-
-      <Row>
-        <Col size="md-7">
-        <div className="funcList">
-          <h2 className="sec1">Use your address to find out who your local representative is. </h2>
-           <a className= "redLink" href="/finddistrict">Find Your Representative</a>
-           </div>
-           </Col>
-
-      </Row> 
+      
 
       <Row>
         <Col size="md-7">
