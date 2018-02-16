@@ -8,7 +8,6 @@ import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropd
 import SenatorName from "../components/SenatorName";
 import "../../src/components/SenatorName/sensearch.css";
 import Logo from "../components/Jumbotron/logo2.jpg";
-import Dropdown from "semantic-ui-react";
 
 
 
