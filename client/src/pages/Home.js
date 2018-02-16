@@ -117,6 +117,7 @@ render() {
 
       <Row>
         <Col size="md-7">
+          <h2>Recent News</h2>
           <NewsList>
               {this.state.articles.map(article => {
                     return (
