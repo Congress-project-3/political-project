@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
+
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Nav = props =>
   <nav className="navbar navbar-default">
@@ -49,7 +50,7 @@ const Nav = props =>
       </ul>
       <ul className="nav navbar-nav navbar-right">
         <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/api/google"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
