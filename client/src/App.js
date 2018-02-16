@@ -8,6 +8,7 @@ import Compare from "./pages/Compare";
 import Home from "./pages/Home";
 import SearchSenator from "./pages/SearchSenator";
 import FindDistrict from "./pages/FindDistrict";
+import Auth from "./pages/Auth";
 
 
 // -------------------------------------------------
@@ -22,7 +23,7 @@ const App = () =>
         <Route exact path="/compare" component={Compare} />
         <Route exact path="/searchsenator" component={SearchSenator} />
         <Route exact path="/finddistrict" component={FindDistrict} />
-
+        <Route exact path="/auth" component={Auth} /> 
 
       </Wrapper>
     </div>
