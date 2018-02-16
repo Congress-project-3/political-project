@@ -133,6 +133,8 @@ render() {
                      first_lastname={this.state.FirstSenatorLastName}
                      second_firstname={this.state.SecondSenatorFirstName}
                      second_lastname={this.state.SecondSenatorLastName}
+                     firstThumbnail={this.state.firstSenator}
+                     secondThumbnail={this.state.secondSenator}
                     />
                     </div> 
                     
@@ -177,7 +179,7 @@ render() {
                         type="success"
                         className="input-lg"
                       >
-                        Search
+                        Compare
                       </Button>
                     </Col>
                   </Row>
