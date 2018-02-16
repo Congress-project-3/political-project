@@ -52,6 +52,13 @@ class Compare extends Component {
       namesArrived: false
     });
 
+    if (this.state.firstSenator === this.state.secondSenator) {
+      alert("Please choose two different senators!")
+    }
+    else {
+
+    
+
 
       // --------------------------------------------------
 
@@ -90,6 +97,7 @@ class Compare extends Component {
 
       })
       .catch(err => console.log(err));
+    }
   };
 
   // ------------------------------------------------------------
