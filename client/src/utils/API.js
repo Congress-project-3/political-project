@@ -24,7 +24,12 @@ export default {
   getSenatorbyState: function(state) {
     return axios.post("/api/searchsenatorbystate", {state: state});
 },
+
   getHomepageNews: function() {
     return axios.get("/api/news");
-  }
+},
+  getAuthentication: function() {
+     return axios.get("/api/google");
+}
+
 }

@@ -55,6 +55,7 @@ render() {
      
     
       <Row>
+
         <Col size="md-7">
         <div className="funcList">
           <h2 className="sec1">Search a senator to see all of their most recent votes.</h2>
@@ -70,6 +71,7 @@ render() {
         onChange={this.handleInputChange}
         placeholder="Sign up for our monthly newsletter!"
         />
+
         </Col>
         <Col size="md-1">
         <Button

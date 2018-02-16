@@ -1,6 +1,7 @@
 const axios = require("axios");
 const router = require("express").Router();
 const finder = require('congressional-district-finder');
+const passport = require('passport');
 const config = {
   headers: { 'X-API-KEY': 'WJ3l3qDKeksPtMBaQps1cGVJ1b4MT1ZqcP9C7Q3w'},
 };
@@ -132,5 +133,10 @@ router.post("/searchsenatorbystate", (req, res) => {
 	    .catch(err => res.status(422).json(err));
 	});       
 
+//===========================================================
+
+router.get('/google',passport.authenticate('google',{
+	scope: ['email']
+}));
 
 module.exports = router;
