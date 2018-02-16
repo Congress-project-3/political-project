@@ -170,6 +170,13 @@ render() {
                       </Button>
                     </Col>
                   </Row>
+
+                  <Row>
+                  <Col size='xs-12'>
+                    <h1>Find out a senator's voting record in the most recent votes!</h1>
+                  </Col>
+                  </Row>
+
                 </Container>
               </form>
             </Col>

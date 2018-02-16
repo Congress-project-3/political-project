@@ -49,7 +49,7 @@ const OpinionFormItem = props => {
     </div>
     <div className="zipcode">
       <label>
-        <input type="text" placeholder="5-digit zipcode" maxLength="5"/>
+        <input type="text" placeholder="Your 5-digit zipcode" maxLength="5"/>
       </label>
     </div>
 

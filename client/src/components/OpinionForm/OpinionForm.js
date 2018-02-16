@@ -15,7 +15,6 @@ const OpinionForm = props => {
             issue="Gun Control"
             question="On the issue of gun control, I believe that we should enact stricter laws and regulations."
             />
-          break;
 
           case 'climateChange':
             console.log ("climate chosen");
@@ -24,7 +23,6 @@ const OpinionForm = props => {
             issue="Climate Change"
             question="On the issue of climate change, I believe that we should enact stricter laws and regulations."
             />
-          break;
 
           case 'netNeutrality':
             console.log ("internet chosen");
@@ -33,10 +31,18 @@ const OpinionForm = props => {
             question="On the issue of net neutrality, I believe that we should enact stricter laws and regulations."
             />
 
-          break;
+
+          case 'other':
+            console.log ("other chosen");
+            return <OpinionFormItem 
+            issue="Net Neutrality"
+            question="On the issue of net neutrality, I believe that we should enact stricter laws and regulations."
+            />
+
 
           default:
             console.log("nothing");
+            return null
 
          }
       })()}
