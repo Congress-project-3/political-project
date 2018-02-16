@@ -1,5 +1,5 @@
 {
-  "name": "mern",
+  "name": "blink-first",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
@@ -8,13 +8,16 @@
     "countup.js": "^1.9.3",
     "geolib": "^2.0.24",
     "house-gov-page-scraper": "^0.1.1",
+    "moment": "^2.20.1",
     "react": "^16.0.0",
     "react-countup": "^3.0.2",
     "react-dom": "^16.0.0",
+    "react-moment": "^0.7.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
     "request": "^2.83.0",
-    "request-promise-native": "^1.0.5"
+    "request-promise-native": "^1.0.5",
+    "semantic-ui-react": "^0.78.2"
   },
   "scripts": {
     "start": "react-scripts start",

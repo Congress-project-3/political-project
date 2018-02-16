@@ -2,8 +2,8 @@
   min-height: 300px;
   padding-top: 75px;
   padding-bottom: 250px;
-  background-image: url("./logo2.jpg");
-  background-size: 100% auto;
+/*  background-image: url("./logo2.jpg");
+*/  background-size: 100% auto;
   background-position: 45%;
   color: #003366;
   background-color: #ffffff;
@@ -13,6 +13,10 @@
   border-color: #453d3d;*/
 
 }
+
+/*span.percent {
+  opacity: 1;
+}*/
 
 #emailthing{
 	bottom: 150px;

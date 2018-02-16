@@ -1,5 +1,5 @@
 {
-  "name": "mern",
+  "name": "blinkfirst",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -20,9 +20,10 @@
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "congressional-district-finder": "^0.2.0",
-    "countup.js": "^1.9.3",
     "express": "^4.15.4",
     "geolib": "^2.0.24",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
     "react-countup": "^3.0.2",
     "react-router-dom": "^4.2.2",
     "request": "^2.83.0",

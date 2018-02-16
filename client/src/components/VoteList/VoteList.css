@@ -1,0 +1,19 @@
+ul.vote-list {
+	overflow: scroll;
+	height: 300px;
+	width: 80%;
+	margin: auto;
+}
+
+li.my-list {
+	border-width: 15px;
+}
+
+.list-info {
+	font-size: 10px;
+}
+
+h2 {
+	font-size: 36px;
+}
+
