@@ -36,6 +36,9 @@ A working version of this app can currently be found [here](https://blink-first.
     ![Alt text](/img/tellUsBefore.png)
     ![Alt text](/img/tellUsAfter.png)
 
+#### Authentication
+* We used OAuth Google Authentication to login.  This allows the user to login using existing google+ login credentials if they have them, or an opportunity to create an identity and then login.
+
 ## How to install
 
 - Clone this git repo
