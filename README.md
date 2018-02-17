@@ -8,10 +8,12 @@ A working version of this app can currently be found [here](https://blink-first.
 
 #### Search Votes
 * Search for a specific senator's most recent votes, up to the last 24 hours.
-    ![Alt text](/img/1.JPG)
+    ![Alt text](/img/1.JPG),
     ![Alt text](/img/2.JPG)
 #### Compare
 * Compare two senators' voting records to see their overall agreement percentage.
+    ![Alt text](/img/compareBef.JPG),
+    ![Alt text](/img/compareAfter.JPG)
 
 #### Search Senator
 * Search for senators' social media and contact information based on their name or state.
