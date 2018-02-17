@@ -99,13 +99,22 @@ a:hover, a:focus {
     margin-bottom: -1px;
     background-color: #ffffff;
     border:none;
-    /*border: 1px solid #887f7f;*/
+}
+
+ul.vote-list{
+    border: 2px solid;
+    border-color: #453d3d;
 }
 
 h2{
   text-align: center;
   color: #887f7f;
   font-size: 20px;
+}
+
+h4{
+  color: #453d3d;
+  font-family: 'Crete Round', serif;
 }
 
 .btn-success{
@@ -146,6 +155,7 @@ h2{
 
 }
 
+
 #newsTick{
 overflow-y: scroll;
 font-family: 'Crete Round', serif;
@@ -175,6 +185,34 @@ ul.list-group.news-list {
 .navbar-default .navbar-nav>li>a {
     color: #887f7f;
     font-size: 15px;
+}
+
+.senDrop{
+  margin: auto;
+  position: relative;
+  left: 50%;
+  color: purple;
+  top: 25%
+}
+
+select{
+  position: relative;
+  margin: auto;
+  display: inline-block;
+  top: 100px;
+  left: 50%;
+  clear: all;
+}
+
+.voteBtn{
+  position: relative;
+  left: 0;
+  right: 40%;
+  top: 80px;
+  bottom: 0;
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 
