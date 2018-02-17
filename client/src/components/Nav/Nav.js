@@ -16,7 +16,7 @@ const Nav = props =>
         <Link className="navbar-brand" to="/">
 
 
-           <img src={require("./eyenav2.jpg")} id="navLogo" />
+           <img src={require("./eyenav2.jpg")} id="navLogo" alt="Blink first logo"/>
         </Link>
       </div>
 
@@ -46,10 +46,12 @@ const Nav = props =>
         <li className={window.location.pathname === "/finddistrict" ? "active" : ""}>
           <Link to="/finddistrict">Find District</Link>
         </li>
+        <li className={window.location.pathname === "/opinions" ? "active" : ""}>
+          <Link to="/opinions">Tell us what you think!</Link>
+        </li>
 
       </ul>
       <ul className="nav navbar-nav navbar-right">
-        <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="/api/google"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>

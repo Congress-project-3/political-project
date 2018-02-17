@@ -15,6 +15,8 @@ const DistrictInfo = props => {
     <h3>{props.district} District</h3>
     <h4>Phone: {props.phone}</h4>
     <Row>
+    <Col size="xs-3">
+    </Col>
     <Col size="sm-2">
     <Youtube medialink={`https://www.youtube.com/user/${props.youtube}`} />
     </Col>
@@ -23,6 +25,8 @@ const DistrictInfo = props => {
     </Col>
     <Col size="sm-2">
     <Facebook medialink={`https://www.facebook.com/${props.facebook}/`} />
+    </Col>
+    <Col size="xs-3">
     </Col>
     </Row>
     </Col>

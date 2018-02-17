@@ -11,7 +11,7 @@ import Logo from "../components/Jumbotron/logo2.jpg";
 class Home extends Component {
   state = {
     email: "",
-    articles: []
+    articles: [],
   }
 
   componentDidMount() {
@@ -60,7 +60,7 @@ render() {
         <div className="funcList">
           <ul>
            <li><a className= "redLink" href="/searchvotes">Search a senator to see all of their most recent votes.</a></li>
-           <li><a className= "redLink" href="/compare">See the per centage rate of agreement between any two Senators.</a></li>
+           <li><a className= "redLink" href="/compare">See the percentage rate of agreement between any two Senators.</a></li>
            <li><a className= "redLink" href="/searsenator">Find Senators by name or state to access their personal social media accounts.</a></li>
            <li><a className= "redLink" href="/finddistrict">Use your address to find out who your local representative is.</a></li>
            </ul>
