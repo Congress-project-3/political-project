@@ -1,6 +1,6 @@
 # Blink First :eyes:
 
-Blink First is all about transparency. It's meant to allow people to keep an eye on their representatives in Congress to see how they have voted recently and what they are currently posting on social media. There was a monumental vote on (immigration/taxes/civil rights) yesterday, and you want to know how your senator voted.
+Blink First is all about transparency. It's meant to allow people to keep an eye on their representatives in Congress to see how they've voted recently and what they are currently posting on social media. There was a monumental vote on (immigration/taxes/civil rights) yesterday, and you want to know how your senator voted.
 
 A working version of this app can currently be found [here](https://blink-first.herokuapp.com/) (deployed to Heroku).
 
@@ -10,7 +10,7 @@ A working version of this app can currently be found [here](https://blink-first.
 * Search for a specific senator's most recent votes, up to the last 24 hours.
 
 #### Compare
-* Compare two senators' voting records to see their agreement percentage.
+* Compare two senators' voting records to see their overall agreement percentage.
 
 #### Search Senator
 * Search for senators' social media and contact information based on their name or state.
@@ -18,7 +18,7 @@ A working version of this app can currently be found [here](https://blink-first.
 #### Find District
 * Search for your congressional representative and congressional district based on your address.
 
-### Tell us what you think!
+#### Tell us what you think!
 * This is my favorite one. On this page, a user can enter their opinions on various current events/hot button issues, and that information will be submitted to a database that will be accessible by eleced officals. The purpose of this is for elected officials to see what their constituents' care the most about and how they feel about specific issue on a broader scale.
 
 ## How to install
