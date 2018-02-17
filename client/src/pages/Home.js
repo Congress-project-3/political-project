@@ -123,33 +123,6 @@ render() {
         
       </Row> 
 
-
-
-      <Row>
-
-                     <OpinionFormDropdown
-                      value={this.state.opinion} 
-                      onChange={this.handleChange}
-                        >
-
-                      {topics.map(topic => {
-                    return (
-                      <OpinionFormDropdownItem
-                        key={topic.value}
-                        value={topic.value}
-                        issue={topic.name}
-                      />
-                    );
-                  })}
-                      </OpinionFormDropdown>
-      
-      <OpinionForm 
-        issue={this.state.opinion}
-      />
-
-
-      </Row>
-
       
    
     </Container>

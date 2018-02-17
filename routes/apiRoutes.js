@@ -28,7 +28,7 @@ router.get("/senators", (req, res) => {
 
 router.get("/news", (req, res) => {
   axios
-    .get('https://newsapi.org/v2/everything?q=Congress+Votes&from=2018-02-10&sortBy=popularity&apiKey=78c103f8da834947bda5b373986dbac7')
+    .get('https://newsapi.org/v2/everything?q=Congress+Votes&from=2018-02-17&sortBy=popularity&apiKey=78c103f8da834947bda5b373986dbac7')
     .then(function(thingWeGotBack){
         console.log("news api results " + thingWeGotBack.data.totalResults);
         console.log("article examples " + thingWeGotBack.data.articles[0].title)
