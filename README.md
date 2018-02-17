@@ -8,7 +8,7 @@ A working version of this app can currently be found [here](https://blink-first.
 
 #### Search Votes
 * Search for a specific senator's most recent votes, up to the last 24 hours.
-    ![Alt text](/compare after.JPG?raw=true “Optional Title”)
+    ![Alt text](/img/compareAfter.JPG?raw=true “Optional Title”)
 #### Compare
 * Compare two senators' voting records to see their overall agreement percentage.
 
