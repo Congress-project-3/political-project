@@ -20,7 +20,9 @@ class SearchVotes extends Component {
     senatorLastName: "",
     nameArrived: false,
     senatorsArrived: false,
-    idArrived: false
+    idArrived: false,
+    searchRendered: false
+
   };
 
   componentDidMount() {
@@ -30,6 +32,7 @@ class SearchVotes extends Component {
   handleChange = event => {
     this.setState({
       senatorSearch: event.target.value,
+      searchRendered: false
     });
     
   };
@@ -53,7 +56,7 @@ class SearchVotes extends Component {
             senatorFirstName: thingsFromNode.data[0].first_name, 
             senatorLastName: thingsFromNode.data[0].last_name,
             nameArrived: true,
-            idArrived: false
+            searchRendered: true
           })
           console.log(this.state.votes[0].member_id)
       console.log(this.state.senatorLastName)
@@ -84,7 +87,7 @@ class SearchVotes extends Component {
 render() {
     return (
       <div>
-        {!this.state.nameArrived ? (
+        {!this.state.searchRendered ? (
         <Jumbotron 
           image={Logo}
         />

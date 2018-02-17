@@ -6,22 +6,12 @@ import Input from "../components/Input";
 import API from "../utils/API";
 import { NewsList, NewsListItem } from "../components/NewsList";
 import Logo from "../components/Jumbotron/logo2.jpg";
-import OpinionForm from "../components/OpinionForm";
-import { OpinionFormDropdownItem, OpinionFormDropdown } from "../components/OpinionFormDropdown";
 
-
-const topics = [
-    {name: "Gun Control", value: "gunControl"}, 
-    {name: "Climate Change", value: "climateChange"}, 
-    {name: "Net Neutrality", value: "netNeutrality"},
-    {name: "Other", value: "Other"}
-    ]
 
 class Home extends Component {
   state = {
     email: "",
     articles: [],
-    opinion: "gunControl"
   }
 
   componentDidMount() {
