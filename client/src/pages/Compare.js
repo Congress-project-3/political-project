@@ -33,6 +33,7 @@ class Compare extends Component {
   handleFirstChange = event => {
     this.setState({
       firstSenator: event.target.value,
+      searchRendered: false
       // percent: ""
     });
   };
@@ -40,7 +41,7 @@ class Compare extends Component {
   handleSecondChange = event => {
     this.setState({
       secondSenator: event.target.value,
-      // percent: ""
+      searchRendered: false
     });
   };
 
@@ -216,6 +217,11 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
+                  </Row>
+                  <Row>
+                  <Col size='xs-12'>
+                    <h1>Compare two senators' voting records to see how often they agree!</h1>
+                  </Col>
                   </Row>
                 </Container>
               </form>

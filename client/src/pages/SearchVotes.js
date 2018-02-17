@@ -8,7 +8,6 @@ import { SenatorDropdownItem, SenatorDropdown } from "../components/SenatorDropd
 import SenatorName from "../components/SenatorName";
 import "../../src/components/SenatorName/sensearch.css";
 import Logo from "../components/Jumbotron/logo2.jpg";
-import Dropdown from "semantic-ui-react";
 
 
 
@@ -21,7 +20,9 @@ class SearchVotes extends Component {
     senatorLastName: "",
     nameArrived: false,
     senatorsArrived: false,
-    idArrived: false
+    idArrived: false,
+    searchRendered: false
+
   };
 
   componentDidMount() {
@@ -31,6 +32,7 @@ class SearchVotes extends Component {
   handleChange = event => {
     this.setState({
       senatorSearch: event.target.value,
+      searchRendered: false
     });
     
   };
@@ -54,7 +56,7 @@ class SearchVotes extends Component {
             senatorFirstName: thingsFromNode.data[0].first_name, 
             senatorLastName: thingsFromNode.data[0].last_name,
             nameArrived: true,
-            idArrived: false
+            searchRendered: true
           })
           console.log(this.state.votes[0].member_id)
       console.log(this.state.senatorLastName)
@@ -85,7 +87,7 @@ class SearchVotes extends Component {
 render() {
     return (
       <div>
-        {!this.state.nameArrived ? (
+        {!this.state.searchRendered ? (
         <Jumbotron 
           image={Logo}
         />
@@ -171,6 +173,13 @@ render() {
                       </Button>
                     </Col>
                   </Row>
+
+                  <Row>
+                  <Col size='xs-12'>
+                    <h1>Find out a senator's voting record in the most recent votes!</h1>
+                  </Col>
+                  </Row>
+
                 </Container>
               </form>
             </Col>
