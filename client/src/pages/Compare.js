@@ -33,6 +33,7 @@ class Compare extends Component {
   handleFirstChange = event => {
     this.setState({
       firstSenator: event.target.value,
+      searchRendered: false
       // percent: ""
     });
   };
@@ -40,7 +41,7 @@ class Compare extends Component {
   handleSecondChange = event => {
     this.setState({
       secondSenator: event.target.value,
-      // percent: ""
+      searchRendered: false
     });
   };
 
@@ -51,6 +52,13 @@ class Compare extends Component {
       percent: "",
       namesArrived: false
     });
+
+    if (this.state.firstSenator === this.state.secondSenator) {
+      alert("Please choose two different senators!")
+    }
+    else {
+
+    
 
 
       // --------------------------------------------------
@@ -90,6 +98,7 @@ class Compare extends Component {
 
       })
       .catch(err => console.log(err));
+    }
   };
 
   // ------------------------------------------------------------
@@ -133,6 +142,8 @@ render() {
                      first_lastname={this.state.FirstSenatorLastName}
                      second_firstname={this.state.SecondSenatorFirstName}
                      second_lastname={this.state.SecondSenatorLastName}
+                     firstThumbnail={this.state.firstSenator}
+                     secondThumbnail={this.state.secondSenator}
                     />
                     </div> 
                     
@@ -177,7 +188,7 @@ render() {
                         type="success"
                         className="input-lg"
                       >
-                        Search
+                        Compare
                       </Button>
                     </Col>
                   </Row>
@@ -206,6 +217,11 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
+                  </Row>
+                  <Row>
+                  <Col size='xs-12'>
+                    <h1>Compare two senators' voting records to see how often they agree!</h1>
+                  </Col>
                   </Row>
                 </Container>
               </form>

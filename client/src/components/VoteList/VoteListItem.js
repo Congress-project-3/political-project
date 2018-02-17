@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "../Grid";
-import "./VoteList.css"
+import Moment from 'react-moment';
+import "./VoteList.css";
 
 // RecipeListItem renders a bootstrap list item containing data from the recipe api call
 export const VoteListItem = props => {
@@ -13,12 +14,16 @@ export const VoteListItem = props => {
             <h2>Roll Call Vote #{props.rollCallNum}</h2>
           </Col>
           <Col size="xs-12" className="list-info">
-            <p>{props.description}</p>
-            <p>{props.billNum}</p>
-            <p>Date: {props.date}</p>
-            <p>Question: {props.question}</p>
-            <p>Yes: {props.totalYes} || No: {props.totalNo} || Not Voting: {props.totalNotVoting}</p>
-            <p>Voted: {props.position}</p>
+            <h4>{props.description}</h4>
+            <h4>{props.billNum}</h4>
+            <h4> 
+            <Moment format="MM/DD/YYYY">
+                {props.date}
+            </Moment>
+            </h4>
+            <h4>Question: {props.question}</h4>
+            <h4>Yes: {props.totalYes} || No: {props.totalNo} || Not Voting: {props.totalNotVoting}</h4>
+            <h4>Voted: {props.position}</h4>
           </Col>
         </Row>
         </Container>
