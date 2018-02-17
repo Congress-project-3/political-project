@@ -46,6 +46,9 @@ const Nav = props =>
         <li className={window.location.pathname === "/finddistrict" ? "active" : ""}>
           <Link to="/finddistrict">Find District</Link>
         </li>
+        <li className={window.location.pathname === "/opinions" ? "active" : ""}>
+          <Link to="/opinions">Opinions</Link>
+        </li>
 
       </ul>
       <ul className="nav navbar-nav navbar-right">

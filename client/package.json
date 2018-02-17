@@ -6,6 +6,7 @@
   "dependencies": {
     "congressional-district-finder": "^0.2.0",
     "countup.js": "^1.9.3",
+    "firebase": "^4.10.0",
     "geolib": "^2.0.24",
     "house-gov-page-scraper": "^0.1.1",
     "moment": "^2.20.1",

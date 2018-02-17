@@ -316,6 +316,12 @@ render() {
             )}
           </Col>
           </Row>
+
+                  <Row>
+                  <Col size='xs-12'>
+                    <h1>Search senators by name or state to find their verified social media accounts and contact information!</h1>
+                  </Col>
+                  </Row>
           
      
         </Container>

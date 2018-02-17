@@ -90,7 +90,7 @@ render() {
 
 
    
-{/*       <Row>
+//*       <Row>
         <Col size="md-7">
         <div className="funcList">
           <h2 className="sec1">See the per centage rate of agreement between any two Senators.</h2>
