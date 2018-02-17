@@ -8,21 +8,33 @@ A working version of this app can currently be found [here](https://blink-first.
 
 #### Search Votes
 * Search for a specific senator's most recent votes, up to the last 24 hours.
+    
     ![Alt text](/img/1.JPG),
     ![Alt text](/img/2.JPG)
 #### Compare
 * Compare two senators' voting records to see their overall agreement percentage.
+    
     ![Alt text](/img/compareBef.JPG),
     ![Alt text](/img/compareAfter.JPG)
 
 #### Search Senator
 * Search for senators' social media and contact information based on their name or state.
 
+    ![Alt text](/img/searchSenBef.JPG),
+    ![Alt text](/img/searchSenAf.JPG)
+
 #### Find District
 * Search for your congressional representative and congressional district based on your address.
 
+    ![Alt text](/img/findDisBef.JPG),
+    ![Alt text](/img/findDisMid.JPG),
+    ![Alt text](/img/findDisAf.JPG)
+
 #### Tell us what you think!
 * This is my favorite one. On this page, a user can enter their opinions on various current events/hot button issues, and that information will be submitted to a database that will be accessible by eleced officals. The purpose of this is for elected officials to see what their constituents' care the most about and how they feel about specific issue on a broader scale.
+
+    ![Alt text](/img/tellUsBefore.png)
+    ![Alt text](/img/tellUsAfter.png)
 
 ## How to install
 
