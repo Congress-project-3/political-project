@@ -7,19 +7,38 @@ A working version of this app can currently be found [here](https://blink-first.
 ## Pages
 
 #### Search Votes
-* Search for a specific senator's most recent votes, updated every 30 minutes.
-
+* Search for a specific senator's most recent votes, up to the last 24 hours.
+    
+    ![Alt text](/img/1.JPG),
+    ![Alt text](/img/2.JPG)
+    
 #### Compare
 * Compare two senators' voting records to see their overall agreement percentage.
+    
+    ![Alt text](/img/compareBef.JPG),
+    ![Alt text](/img/compareAfter.JPG)
 
 #### Search Senator
 * Search for senators' social media and contact information based on their name or state.
 
+    ![Alt text](/img/searchSenBef.JPG),
+    ![Alt text](/img/searchSenAf.JPG)
+
 #### Find District
 * Search for your congressional representative and congressional district based on your address.
 
+    ![Alt text](/img/findDisBef.JPG),
+    ![Alt text](/img/finDisMid.JPG),
+    ![Alt text](/img/findDisAf.JPG)
+
 #### Tell us what you think!
 * This is my favorite one. On this page, a user can enter their opinions on various current events/hot button issues, and that information will be submitted to a database that will be accessible by eleced officals. The purpose of this is for elected officials to see what their constituents' care the most about and how they feel about specific issue on a broader scale.
+
+    ![Alt text](/img/tellUsBefore.png)
+    ![Alt text](/img/tellUsAfter.png)
+
+#### Authentication
+* We used OAuth Google Authentication to login.  This allows the user to login using existing google+ login credentials if they have them, or an opportunity to create an identity and then login.
 
 ## How to install
 
@@ -48,5 +67,3 @@ A working version of this app can currently be found [here](https://blink-first.
 - [Animate.css](https://daneden.github.io/animate.css/)
 - [Passport](https://www.npmjs.com/package/passport)
 - [passport-google-oauth20](https://www.npmjs.com/package/passport-google-oauth20)
-
-
