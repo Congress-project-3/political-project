@@ -1,13 +1,13 @@
 # Blink First :eyes:
 
-Blink First is all about transparency. It's meant to allow people to keep an eye on their representatives in Congress to see how they've voted recently and what they are currently posting on social media. There was a monumental vote on (immigration/taxes/civil rights) yesterday, and you want to know how your senator voted.
+Blink First is all about transparency. It's meant to allow people to keep an eye on their representatives in Congress to see how they've voted recently and what they are currently posting on social media. There was a monumental vote on (immigration/taxes/civil rights) today, and you want to know how your senator voted.
 
 A working version of this app can currently be found [here](https://blink-first.herokuapp.com/) (deployed to Heroku).
 
 ## Pages
 
 #### Search Votes
-* Search for a specific senator's most recent votes, up to the last 24 hours.
+* Search for a specific senator's most recent votes, updated every 30 minutes.
 
 #### Compare
 * Compare two senators' voting records to see their overall agreement percentage.
@@ -26,6 +26,11 @@ A working version of this app can currently be found [here](https://blink-first.
 - Clone this git repo
 - From the root directory, run `yarn install`, then cd into the client folder and run `yarn install` again. 
 - After that is complete, cd back into the root directory and run `yarn start`
+
+## APIs Used
+
+- [ProPublica Congress API](https://projects.propublica.org/api-docs/congress-api/#overview)
+- [News API](https://newsapi.org/)
 
 ## Dependencies/Tools
 
