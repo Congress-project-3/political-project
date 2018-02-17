@@ -27,7 +27,7 @@ A working version of this app can currently be found [here](https://blink-first.
 * Search for your congressional representative and congressional district based on your address.
 
     ![Alt text](/img/findDisBef.JPG),
-    ![Alt text](/img/findDisMid.JPG),
+    ![Alt text](/img/finDisMid.JPG),
     ![Alt text](/img/findDisAf.JPG)
 
 #### Tell us what you think!
