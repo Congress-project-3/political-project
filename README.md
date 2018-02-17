@@ -4,7 +4,7 @@ Blink First is all about transparency. It's meant to allow people to keep an eye
 
 A working version of this app can currently be found [here](https://blink-first.herokuapp.com/) (deployed to Heroku).
 
-## Functions
+## Pages
 
 #### Search Votes
 * Search for a specific senator's most recent votes, up to the last 24 hours.
@@ -12,10 +12,10 @@ A working version of this app can currently be found [here](https://blink-first.
 #### Compare
 * Compare two senators' voting records to see their agreement percentage.
 
-### Search Senator
+#### Search Senator
 * Search for senators' social media and contact information based on their name or state.
 
-### Find District
+#### Find District
 * Search for your congressional representative and congressional district based on your address.
 
 ### Tell us what you think!
