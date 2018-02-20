@@ -5,6 +5,21 @@ const passport = require('passport');
 const config = {
   headers: { 'X-API-KEY': 'WJ3l3qDKeksPtMBaQps1cGVJ1b4MT1ZqcP9C7Q3w'},
 };
+var firebase = require('firebase/app');
+
+  var fireb = {
+    apiKey: 'AIzaSyCWy6-GZpjtMjr8_QmoUtNj6VCx0xH3IZk',
+    authDomain: "https://blinkfirst-246d9.firebaseapp.com",
+    databaseURL: 'https://blinkfirst-246d9.firebaseio.com',
+    projectId: "blinkfirst-246d9",
+    storageBucket: 'https://blinkfirst-246d9.appspot.com',
+    messagingSenderId: "84669971766"
+  };
+  firebase.initializeApp(fireb);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+
 
 // ======================================================================
 
@@ -24,6 +39,22 @@ router.get("/senators", (req, res) => {
 	    .catch(err => res.status(422).json(err));
 	});
 
+router.get("/senators", (req, res) => {
+  axios
+    .get("https://api.propublica.org/congress/v1/115/senate/members.json", config)
+    .then(function(thingWeGotBack){
+        // console.log('we got this back from the api ----',thingWeGotBack.data.results[0].members)
+        const idNumber = thingWeGotBack.data.results[0].members.map((senator) => senator.first_name + " " + senator.last_name + ", id:" + senator.id);
+        // console.log(idNumber);
+        const members = thingWeGotBack.data.results[0].members
+        // console.log(thingWeGotBack.data.results[0].members[2].id);
+        // console.log(members);
+        res.json(members);
+        // return members;
+    })
+        .catch(err => res.status(422).json(err));
+    });
+
 // ============================================================================
 
 router.get("/news", (req, res) => {
@@ -37,6 +68,16 @@ router.get("/news", (req, res) => {
         .catch(err => res.status(422).json(err));
     });
 
+//=========================================
+
+router.post("/opinions", (req, res) => {
+    console.log('we hit the route ---', req.body);
+
+    // fire base it up
+    firebase.database().ref('opinions').push(req.body);
+    res.send('hello');
+})
+  
 // ===========================================================================
 
 router.post("/comparesenators", (req, res) => {
