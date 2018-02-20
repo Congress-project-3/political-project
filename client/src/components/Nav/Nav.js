@@ -20,7 +20,7 @@ const Nav = props =>
       </div>
 
       <div id="myNavbar">
-      <ul className="nav navbar-nav">
+      <ul className="nav navbar-nav navItem">
         <li
           className={
             window.location.pathname === "/" ||

@@ -189,20 +189,27 @@ ul.list-group.news-list {
 
 .senDrop{
   margin: auto;
-  position: relative;
+  position: absolute;
   left: 50%;
   color: purple;
   top: 25%
 }
 
-select{
+.inptDiv{
+  display: inline-block;
+  margin: 50px;
+  background-color: purple;
+  position: relative;
+}
+
+/*select{
   position: relative;
   margin: auto;
   display: inline-block;
   top: 100px;
   left: 50%;
   clear: all;
-}
+}*/
 
 .voteBtn{
   position: relative;
@@ -213,6 +220,11 @@ select{
   margin: auto;
   display: inline-block;
   vertical-align: middle;
+}
+
+.compBtn{
+  position: relative;
+  display: inline;
 }
 
 

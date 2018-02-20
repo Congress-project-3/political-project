@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 import Button from "../components/Button";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
@@ -143,12 +144,14 @@ render() {
                     </Jumbotron>
         )}
         <Container>
-          <Row>
-            <Col size="md-12">
+        <div className="inptDiv">
+        <Row>
+        <Col size="xs-12 lg-12">
+  
               <form>
                 <Container>
                   <Row>
-                    <Col size="xs-6 sm-6">
+                    <Col size="xs-12 sm-12 lg-9">
                       {!this.state.senatorsArrived ? (
                                 <p></p>
                         ) : (
@@ -173,18 +176,18 @@ render() {
                       )}
                       </Col>
                   
-                    <Col size="xs-3 sm-2">
+                    <Col size="xs-12 sm-12 lg-3">
                       <Button
                         onClick={this.handleFormSubmit}
                         type="success"
-                        className="input-lg"
+                        className="input-lg compBtn"
                       >
                         Compare
                       </Button>
                     </Col>
                   </Row>
                   <Row>
-                  <Col size="xs-6 sm-6">
+                  <Col size="xs-12 sm-12 lg-9">
                   {!this.state.senatorsArrived ? (
                               <p></p>
                         ) : (
@@ -211,13 +214,19 @@ render() {
                   </Row>
                 </Container>
               </form>
-              
-            </Col>
-          </Row>
+     
+          </Col> 
+         </Row> 
+         </div>
         </Container>
+
+         <Footer />
       </div>
     );
+   
   }
+  
 }
+
 
 export default Compare;

@@ -132,7 +132,7 @@ render() {
         <Container>
           <Row>
             <Col size="lg-12">
-              <form>
+              <form className="">
                 <Container>
                   <Row>
                     <Col size="xs-12 lg-9">
