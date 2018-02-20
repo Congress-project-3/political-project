@@ -95,7 +95,7 @@ render() {
         >
                 <div>
                 <Row>
-                  <Col size="xs-12 lg-12">
+                  <Col size="xs-12">
                     <SenatorName 
                        firstname={this.state.senatorFirstName}
                         lastname={this.state.senatorLastName}
@@ -104,7 +104,7 @@ render() {
                 </Row>
                 
                 <Row>
-                <Col size="xs-12 lg-12">
+                <Col size="xs-12">
                 <VoteList>
                   {this.state.votes.map(vote => {
                     return (
@@ -131,16 +131,15 @@ render() {
         )}
         <Container>
           <Row>
-            <Col size="lg-12">
+            <Col size="md-12">
               <form>
                 <Container>
                   <Row>
-                    <Col size="xs-12 lg-9">
+                    <Col size="xs-12 sm-8">
                       {this.state.senatorsArrived === false ? (
                                 <p></p>
                         ) : (
                       <SenatorDropdown
-                      className="senDrop"
                       value={this.state.senatorSearch} 
                       onChange={this.handleChange}
                         >
@@ -162,11 +161,11 @@ render() {
                       )}
                       </Col>
                       
-                    <Col size="xs-12 lg-3">
+                    <Col size="xs-6 sm-4">
                       <Button
                         onClick={this.handleFormSubmit}
                         type="success"
-                        className="input-lg voteBtn"
+                        className="input-lg"
                       >
                         Search
                       </Button>
