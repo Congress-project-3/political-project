@@ -106,11 +106,11 @@ render() {
              )}
         <Container>
           <Row>
-            <Col size="md-12">
+            <Col size="lg-12">
               <form>
                 <Container>
                   <Row>
-                    <Col size="sm-4">
+                    <Col size="sm-3">
                       <Input
                         name="address"
                         value={this.state.address}
@@ -119,7 +119,7 @@ render() {
                         placeholder="Address"
                       />
                       </Col>
-                      <Col size="sm-4">
+                      <Col size="sm-3">
                       <Input
                         name="city"
                         value={this.state.city}
@@ -128,7 +128,7 @@ render() {
                         placeholder="City"
                       />
                       </Col>
-                      <Col size="sm-2">
+                      <Col size="sm-3">
                       <Input
                         name="stateAbbrev"
                         value={this.state.stateAbbrev}
@@ -139,13 +139,13 @@ render() {
                         maxLength="2"
                       />
                       </Col>
-                    <Col size="xs-3 sm-2">
+                    <Col size="sm-3">
                       <Button
                         onClick={this.handleFormSubmit}
                         type="success"
                         className="input-lg"
                       >
-                        Search
+                        SEARCH
                       </Button>
                     </Col>
                   </Row>

@@ -136,7 +136,7 @@ render() {
               <form className="">
                 <Container>
                   <Row>
-                    <Col size="xs-12 lg-9">
+                    <Col size="lg-12">
                       {this.state.senatorsArrived === false ? (
                                 <p></p>
                         ) : (
@@ -162,14 +162,17 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
+                      </Row>
+
+                      <Row>
                       
-                    <Col size="xs-12 lg-3">
+                    <Col size="lg-12">
                       <Button
                         onClick={this.handleFormSubmit}
                         type="success"
                         className="input-lg voteBtn"
                       >
-                        Search
+                        SEARCH
                       </Button>
                     </Col>
                   </Row>

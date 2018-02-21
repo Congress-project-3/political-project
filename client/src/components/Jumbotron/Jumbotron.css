@@ -9,6 +9,10 @@
   margin: 10px;
 }
 
+/*.bod{
+  min-height: 100%;
+}*/
+
 a.redLink {
   display: block;
   text-align: center;
@@ -40,6 +44,13 @@ a:hover, a:focus {
     text-align: center;
 }
 
+li.list-group-item{
+  border-bottom: 1px;
+  border-style: solid;
+  border-color: #887f7f;
+}
+
+
 .funcList{
   /*border-style: solid;*/
   border-width: 0px 0px 2px 0px;
@@ -53,24 +64,23 @@ a:hover, a:focus {
 
 }
 
-#dropdownSen{
+/*#dropdownSen{
   position: relative;
   clear: all;
   top: 200px;
   left: 200px;
   float: right;
-}
+}*/
 
 .btn{
   /*float: left;*/
-  position: relative;
+  /*position: relative;
   right: 225px;
-  bottom: 25px;
+  bottom: 25px;*/
 }
 
 #votelist{
   border-style: solid;
-  border-color: purple;
 }
 
 .jumbotron h1, .jumbotron .h1 {
@@ -149,7 +159,7 @@ font-family: 'Crete Round', serif;
 ul.news-list {
     overflow: scroll;
     height: 300px;
-    /*text-align: center;*/
+    
 }
 
 ul.list-group.news-list {
@@ -172,46 +182,45 @@ ul.list-group.news-list {
     font-size: 15px;
 }
 
-.senDrop{
+/*.senDrop{
   margin: auto;
   position: absolute;
   left: 50%;
   color: purple;
   top: 25%
-}
+}*/
 
 .inptDiv{
-  display: inline-block;
-  margin: 50px;
-  background-color: blue;
   position: relative;
+  vertical-align: middle;
+  max-width: 50%;
 
 }
 
 select{
-  position: relative;
-  margin: auto;
-  display: inline-block;
-  top: 100px;
-  left: 50%;
-  float: left;
+  /*position: absolute;*/
+  margin: 10px;
+  vertical-align: middle;
+  display: inline;
+  width: 100%;
+  text-align: center;
+
+
 }
 
 .voteBtn{
-  position: relative;
-  left: 0;
-  right: 40%;
-  top: 80px;
-  bottom: 0;
-  margin: auto;
-  display: inline-block;
+
+}
+
+.btn{
+  margin: 10px;
+  display: inline;
   vertical-align: middle;
+  width: 100%;
+  font-family: 'Crete Round', serif;
 }
 
-.compBtn{
-  position: relative;
-  float: right;
-  display: inline-block;
+input{
+  margin: 10px;
 }
-
 

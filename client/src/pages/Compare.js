@@ -147,12 +147,12 @@ render() {
         <Container>
         <div className="inptDiv">
         <Row>
-        <Col size="xs-12 lg-12">
+        <Col size="xs-12 lg-12 left">
   
-              <form>
+              <form className="fuckthisthing">
                 <Container>
                   <Row>
-                    <Col size="xs-12 sm-12 lg-9">
+                    <Col size="lg-12">
                       {!this.state.senatorsArrived ? (
                                 <p></p>
                         ) : (
@@ -176,19 +176,12 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
-                  
-                    <Col size="xs-12 sm-12 lg-3">
-                      <Button
-                        onClick={this.handleFormSubmit}
-                        type="success"
-                        className="input-lg compBtn"
-                      >
-                        Compare
-                      </Button>
-                    </Col>
-                  </Row>
+                      </Row>
+
+                    
+        
                   <Row>
-                  <Col size="xs-12 sm-12 lg-9">
+                  <Col size="lg-12">
                   {!this.state.senatorsArrived ? (
                               <p></p>
                         ) : (
@@ -212,7 +205,19 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
-                  </Row>
+                  </Row>  
+                  <Row>
+                  
+                    <Col size="lg-12">
+                      <Button
+                        onClick={this.handleFormSubmit}
+                        type="success"
+                        className="input-lg compBtn"
+                      >
+                        COMPARE
+                      </Button>
+                    </Col>
+                    </Row>
                 </Container>
               </form>
      

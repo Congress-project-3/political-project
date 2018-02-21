@@ -248,12 +248,11 @@ render() {
                     </Jumbotron>
         )}
         <Container>
-          <Row>
-            <Col size="md-12">
+          
               <form>
                 <Container>
-                  <Row>
-                    <Col size="xs-12 sm-10">
+                   <Row>
+                     <Col size="lg-12">
                       {!this.state.senatorsArrived ? (
                         <p></p>
                         ) : (
@@ -278,23 +277,13 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
-                      
-                    <Col size="xs-3 sm-2">
-                      <Button
-                        onClick={this.handleSubmit}
-                        type="success"
-                        className="input-lg"
-                      >
-                        Search
-                      </Button>
-                    </Col>
-                  </Row>
+                      </Row>
+
                 </Container>
               </form>
-            </Col>
-          </Row>
+           
           <Row>
-          <Col size="xs-12 sm-10">
+          <Col size="lg-12">
           {!this.state.senatorsArrived ? (
                     <p></p>
                 ) : (
@@ -317,6 +306,19 @@ render() {
             )}
           </Col>
           </Row>
+
+            <Row>
+                      
+                    <Col size="lg-12">
+                      <Button
+                        onClick={this.handleSubmit}
+                        type="success"
+                        className="input-lg"
+                      >
+                        SEARCH
+                      </Button>
+                    </Col>
+                  </Row>
           
      
         </Container>
