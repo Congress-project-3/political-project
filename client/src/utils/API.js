@@ -6,6 +6,9 @@ export default {
   getSenators: function() {
     return axios.get("/api/senators");
   },
+  saveOpinions: function(opinion) {
+    return axios.post("/opinions", opinion);
+  },
   getComparison: function(first, second) {
     return axios.post("/api/comparesenators", {firstPerson: first, secondPerson: second});
   },
