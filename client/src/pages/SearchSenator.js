@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 import Button from "../components/Button";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
@@ -316,15 +317,10 @@ render() {
             )}
           </Col>
           </Row>
-
-                  <Row>
-                  <Col size='xs-12'>
-                    <h1>Search senators by name or state to find their verified social media accounts and contact information!</h1>
-                  </Col>
-                  </Row>
           
      
         </Container>
+        <Footer />
       </div>
     );
   }

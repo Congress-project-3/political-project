@@ -1,7 +1,25 @@
 .page-footer{
-	background-color: purple;
-	position: absolute;
+	margin-bottom: 0;
+  	background-color: #ffffff;
+  	color: #887f7f;
+  	border-type: solid;
+  	border-top: 5px solid;
+  /*border-bottom: 2px solid;*/
+  	border-color: #453d3d;
+  	box-shadow: 2px 2px;
+  	font-family: 'Crete Round', serif;;
+  	position: absolute;
 	bottom: 0;
 	width: 100%;
-  
+	height: 45px;
 }
+
+.footer-copyright{
+	text-align: center;
+}
+
+html, body{
+	height: 100%
+}
+
+.wrapper{ position: relative; }

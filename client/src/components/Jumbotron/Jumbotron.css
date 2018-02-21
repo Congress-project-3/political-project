@@ -7,21 +7,6 @@
   color: #003366;
   background-color: #ffffff;
   margin: 10px;
-
-
-}
-
-
-#emailthing{
-  bottom: 50px;
-  position: relative;
-  float: right;
-}
-
-.emailBtn{
-  left: 2px;
-  top: 10px;
- 
 }
 
 a.redLink {
@@ -198,18 +183,19 @@ ul.list-group.news-list {
 .inptDiv{
   display: inline-block;
   margin: 50px;
-  background-color: purple;
+  background-color: blue;
   position: relative;
+
 }
 
-/*select{
+select{
   position: relative;
   margin: auto;
   display: inline-block;
   top: 100px;
   left: 50%;
-  clear: all;
-}*/
+  float: left;
+}
 
 .voteBtn{
   position: relative;
@@ -224,7 +210,8 @@ ul.list-group.news-list {
 
 .compBtn{
   position: relative;
-  display: inline;
+  float: right;
+  display: inline-block;
 }
 
 

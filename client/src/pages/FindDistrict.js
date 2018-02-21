@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import API from "../utils/API";
@@ -154,6 +155,8 @@ render() {
           </Row>
           
         </Container>
+            <Footer />
+
       </div>
     );
   }

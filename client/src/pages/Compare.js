@@ -143,6 +143,7 @@ render() {
 
                     </Jumbotron>
         )}
+
         <Container>
         <div className="inptDiv">
         <Row>
