@@ -1,5 +1,5 @@
 .page-footer{
-	  margin-bottom: 0;
+	  /*margin-bottom: 0;*/
    	background-color: #ffffff;
   	color: #887f7f;
   	border-type: solid;
@@ -11,16 +11,21 @@
 	  bottom: 0;
 	  width: 100%;
 	  height: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .footer-copyright{
 	text-align: center;
 }
 
-html, body{
-	height: 100%
+main.wrapper{
+  height: 100%;
+  position: relative;
+  padding-bottom: 225px;
 }
 
-main.wrapper{ 
-  position: relative; 
-  min-height: 100%}
+/*.wrapper{ 
+  position: relative;
+  padding-bottom: 100px; 
+  }*/

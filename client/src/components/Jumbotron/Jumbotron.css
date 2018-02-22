@@ -161,14 +161,12 @@ ul.list-group.news-list {
     font-size: 15px;
 }
 
-
-
-.inptDiv{
+/*.inptDiv{
   position: relative;
   vertical-align: middle;
   max-width: 50%;
 
-}
+}*/
 
 select{
   margin: 10px;
