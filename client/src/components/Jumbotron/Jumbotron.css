@@ -7,6 +7,7 @@
   color: #003366;
   background-color: #ffffff;
   margin: 10px;
+  margin-bottom: 50px;
 }
 
 a.redLink {
@@ -15,7 +16,6 @@ a.redLink {
   color: #453d3d;
   font-weight: bold;
   font-size: 20px;
-
 }
 
 a {
@@ -133,6 +133,7 @@ h4{
 #newsTick{
 overflow-y: scroll;
 font-family: 'Crete Round', serif;
+margin-top: 50px;
 }
 
 ul.news-list {
@@ -179,6 +180,8 @@ select{
 .senSearchDrop{
   left: -15px;
   position: relative;
+  min-width: 100%;
+  margin: 0;
 }
 
 
