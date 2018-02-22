@@ -30,11 +30,11 @@ const Nav = props =>
               : ""
           }
         >
-         {/* <Link to="/">About</Link>
+          
         </li>
         <li
           className={window.location.pathname === "/searchvotes" ? "active" : ""}
-        >*/}
+        >
           <Link to="/searchvotes">Search Votes</Link>
         </li>
         <li className={window.location.pathname === "/compare" ? "active" : ""}>
