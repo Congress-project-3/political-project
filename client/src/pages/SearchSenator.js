@@ -249,12 +249,12 @@ render() {
         )}
         <Container>
           
-              <form>
+              <form className="senSearchDrop">
                 <Container>
                    <Row>
                      <Col size="lg-12">
                       {!this.state.senatorsArrived ? (
-                        <p></p>
+                         <p></p>
                         ) : (
                       <SenatorDropdown
                       value={this.state.senatorSearch} 

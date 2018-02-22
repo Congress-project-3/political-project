@@ -9,15 +9,10 @@
   margin: 10px;
 }
 
-/*.bod{
-  min-height: 100%;
-}*/
-
 a.redLink {
   display: block;
   text-align: center;
   color: #453d3d;
-  /*margin-left: 230px;*/
   font-weight: bold;
   font-size: 20px;
 
@@ -50,7 +45,6 @@ li.list-group-item{
   border-color: #887f7f;
 }
 
-
 .funcList{
   /*border-style: solid;*/
   border-width: 0px 0px 2px 0px;
@@ -62,21 +56,6 @@ li.list-group-item{
 #searchInst{
   color: #453d3d;
 
-}
-
-/*#dropdownSen{
-  position: relative;
-  clear: all;
-  top: 200px;
-  left: 200px;
-  float: right;
-}*/
-
-.btn{
-  /*float: left;*/
-  /*position: relative;
-  right: 225px;
-  bottom: 25px;*/
 }
 
 #votelist{
@@ -182,13 +161,7 @@ ul.list-group.news-list {
     font-size: 15px;
 }
 
-/*.senDrop{
-  margin: auto;
-  position: absolute;
-  left: 50%;
-  color: purple;
-  top: 25%
-}*/
+
 
 .inptDiv{
   position: relative;
@@ -198,19 +171,18 @@ ul.list-group.news-list {
 }
 
 select{
-  /*position: absolute;*/
   margin: 10px;
   vertical-align: middle;
   display: inline;
   width: 100%;
   text-align: center;
-
-
 }
 
-.voteBtn{
-
+.senSearchDrop{
+  left: -15px;
+  position: relative;
 }
+
 
 .btn{
   margin: 10px;

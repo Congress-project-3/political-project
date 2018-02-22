@@ -155,10 +155,12 @@ render() {
           </Row>
           
         </Container>
-            <Footer />
 
+      <Footer />  
       </div>
+
     );
+
   }
 }
 
