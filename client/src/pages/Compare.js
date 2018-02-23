@@ -225,14 +225,14 @@ render() {
                       </Button>
                     </Col>
                     </Row>
-{/*=======</Row>*/}
+{/*=======</Row>
                   
                   <Row>
                   <Col size='xs-12'>
                     <h1>Compare two senators' voting records to see how often they agree!</h1>
                   </Col>
                   </Row>
-{/*>>>>>>> Development*/}
+>>>>>>> Development*/}
                 </Container>
               </form>
      

@@ -59,7 +59,7 @@ const Nav = props =>
 {/*<<<<<<< HEAD
         <li><a href="/api/google"><span className="glyphicon glyphicon-log-in glyphnav"></span>Login</a></li>
 ======= */}
-        <li><a href="/api/google"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/api/google"><span style={{left: '-6px'}} className="glyphicon glyphicon-log-in"></span> Login</a></li>
 {/*>>>>>>> Development */}
       </ul>
     </div>
