@@ -34,6 +34,7 @@ class Compare extends Component {
   handleFirstChange = event => {
     this.setState({
       firstSenator: event.target.value,
+      searchRendered: false
       // percent: ""
     });
   };
@@ -41,7 +42,7 @@ class Compare extends Component {
   handleSecondChange = event => {
     this.setState({
       secondSenator: event.target.value,
-      // percent: ""
+      searchRendered: false
     });
   };
 
@@ -52,6 +53,13 @@ class Compare extends Component {
       percent: "",
       namesArrived: false
     });
+
+    if (this.state.firstSenator === this.state.secondSenator) {
+      alert("Please choose two different senators!")
+    }
+    else {
+
+    
 
 
       // --------------------------------------------------
@@ -91,6 +99,7 @@ class Compare extends Component {
 
       })
       .catch(err => console.log(err));
+    }
   };
 
   // ------------------------------------------------------------
@@ -177,9 +186,6 @@ render() {
                       )}
                       </Col>
                       </Row>
-
-                    
-        
                   <Row>
                   <Col size="lg-12">
                   {!this.state.senatorsArrived ? (
@@ -205,6 +211,7 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
+{/*<<<<<<< HEAD*/}
                   </Row>  
                   <Row>
                   
@@ -218,6 +225,14 @@ render() {
                       </Button>
                     </Col>
                     </Row>
+{/*=======</Row>*/}
+                  
+                  <Row>
+                  <Col size='xs-12'>
+                    <h1>Compare two senators' voting records to see how often they agree!</h1>
+                  </Col>
+                  </Row>
+{/*>>>>>>> Development*/}
                 </Container>
               </form>
      

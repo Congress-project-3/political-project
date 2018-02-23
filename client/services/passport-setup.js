@@ -7,7 +7,7 @@ passport.use(
         //options for google strat
 
         
-        callbackURL: '/searchvotes',
+        callbackURL: '/',
         clientID: '277006327585-jfr382jo05ms612f9cd4do7vf5h3f67b.apps.googleusercontent.com',
         clientSecret: 'MaALyUzv5gFBAuPXjpjIYYsP'
 

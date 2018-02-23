@@ -307,6 +307,7 @@ render() {
           </Col>
           </Row>
 
+{/*<<<<<<< HEAD */}
             <Row>
                       
                     <Col size="lg-12">
@@ -318,6 +319,12 @@ render() {
                         SEARCH
                       </Button>
                     </Col>
+{/*// =======*/}
+                  <Row>
+                  <Col size='xs-12'>
+                    <h1>Search senators by name or state to find their verified social media accounts and contact information!</h1>
+                  </Col>
+{/*>>>>>>> Development*/}
                   </Row>
           
      
