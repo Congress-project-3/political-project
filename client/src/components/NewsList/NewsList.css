@@ -2,3 +2,9 @@ ul.news-list {
 	overflow: scroll;
 	height: 300px;
 }
+
+.list-group-item{
+	border-bottom: 1px;
+	border-style: solid;
+	border-color: #887f7f;
+}

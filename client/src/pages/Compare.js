@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 import Button from "../components/Button";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
@@ -151,13 +152,16 @@ render() {
 
                     </Jumbotron>
         )}
+
         <Container>
-          <Row>
-            <Col size="md-12">
-              <form>
+        <div className="inptDiv">
+        <Row>
+        <Col size="xs-12 lg-12 left">
+  
+              <form className="fuckthisthing">
                 <Container>
                   <Row>
-                    <Col size="xs-6 sm-6">
+                    <Col size="lg-12">
                       {!this.state.senatorsArrived ? (
                                 <p></p>
                         ) : (
@@ -181,19 +185,9 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
-                  
-                    <Col size="xs-3 sm-2">
-                      <Button
-                        onClick={this.handleFormSubmit}
-                        type="success"
-                        className="input-lg"
-                      >
-                        Compare
-                      </Button>
-                    </Col>
-                  </Row>
+                      </Row>
                   <Row>
-                  <Col size="xs-6 sm-6">
+                  <Col size="lg-12">
                   {!this.state.senatorsArrived ? (
                               <p></p>
                         ) : (
@@ -217,21 +211,43 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
-                  </Row>
+{/*<<<<<<< HEAD*/}
+                  </Row>  
+                  <Row>
+                  
+                    <Col size="lg-12">
+                      <Button
+                        onClick={this.handleFormSubmit}
+                        type="success"
+                        className="input-lg compBtn"
+                      >
+                        COMPARE
+                      </Button>
+                    </Col>
+                    </Row>
+{/*=======</Row>
+                  
                   <Row>
                   <Col size='xs-12'>
                     <h1>Compare two senators' voting records to see how often they agree!</h1>
                   </Col>
                   </Row>
+>>>>>>> Development*/}
                 </Container>
               </form>
-              
-            </Col>
-          </Row>
+     
+          </Col> 
+         </Row> 
+         </div>
         </Container>
+
+         <Footer />
       </div>
     );
+   
   }
+  
 }
+
 
 export default Compare;
