@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 import Button from "../components/Button";
 import API from "../utils/API";
 import { VoteList, VoteListItem } from "../components/VoteList";
@@ -97,7 +98,7 @@ render() {
         >
                 <div>
                 <Row>
-                  <Col size="xs-12">
+                  <Col size="xs-12 lg-12">
                     <SenatorName 
                        firstname={this.state.senatorFirstName}
                         lastname={this.state.senatorLastName}
@@ -106,7 +107,7 @@ render() {
                 </Row>
                 
                 <Row>
-                <Col size="xs-12">
+                <Col size="xs-12 lg-12">
                 <VoteList>
                   {this.state.votes.map(vote => {
                     return (
@@ -133,15 +134,16 @@ render() {
         )}
         <Container>
           <Row>
-            <Col size="md-12">
-              <form>
+            <Col size="lg-12">
+              <form className="">
                 <Container>
                   <Row>
-                    <Col size="xs-12 sm-8">
+                    <Col size="lg-12">
                       {this.state.senatorsArrived === false ? (
                                 <p></p>
                         ) : (
                       <SenatorDropdown
+                      className="senDrop"
                       value={this.state.senatorSearch} 
                       onChange={this.handleChange}
                         >
@@ -162,23 +164,26 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
+                      </Row>
+
+                      <Row>
                       
-                    <Col size="xs-6 sm-4">
+                    <Col size="lg-12">
                       <Button
                         onClick={this.handleFormSubmit}
                         type="success"
-                        className="input-lg"
+                        className="input-lg voteBtn"
                       >
-                        Search
+                        SEARCH
                       </Button>
                     </Col>
                   </Row>
 
-                  <Row>
+                  {/*<Row>
                   <Col size='xs-12'>
                     <h1>Find out a senator's voting record in the most recent votes!</h1>
                   </Col>
-                  </Row>
+                  </Row>*/}
 
                 </Container>
               </form>
@@ -186,6 +191,7 @@ render() {
           </Row>
              
         </Container>
+        <Footer />
       </div>
     );
   }

@@ -17,8 +17,8 @@ export const SenatorProfile = props => {
   	<Col size="xs-6 sm-8">
     <h1>Sen. {props.firstName} {props.lastName}</h1>
     <h3>{props.party}-{props.state}</h3>
-    <h4>Phone: {props.phone}</h4>
-    <h4><a href={props.contact} target="_blank">Contact Form</a></h4>
+    <h4 >Phone: {props.phone}</h4>
+    <h4><a style={{color:"#887f7f"}} href={props.contact} target="_blank">Contact Form</a></h4>
     <Row>
     <Col size="sm-4">
     <Youtube medialink={`https://www.youtube.com/user/${props.youtube}`} />

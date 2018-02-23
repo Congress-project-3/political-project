@@ -15,15 +15,14 @@ const DistrictInfo = props => {
     <h3>{props.district} District</h3>
     <h4>Phone: {props.phone}</h4>
     <Row>
-    <Col size="xs-3">
-    </Col>
-    <Col size="sm-2">
+
+    <Col size="sm-4">
     <Youtube medialink={`https://www.youtube.com/user/${props.youtube}`} />
     </Col>
-    <Col size="sm-2">
+    <Col size="sm-4">
     <Twitter medialink={`https://twitter.com/${props.twitter}`} />
     </Col>
-    <Col size="sm-2">
+    <Col size="sm-4">
     <Facebook medialink={`https://www.facebook.com/${props.facebook}/`} />
     </Col>
     <Col size="xs-3">
