@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 import Button from "../components/Button";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
@@ -247,14 +248,13 @@ render() {
                     </Jumbotron>
         )}
         <Container>
-          <Row>
-            <Col size="md-12">
-              <form>
+          
+              <form className="senSearchDrop">
                 <Container>
-                  <Row>
-                    <Col size="xs-12 sm-10">
+                   <Row>
+                     <Col size="lg-12">
                       {!this.state.senatorsArrived ? (
-                        <p></p>
+                         <p></p>
                         ) : (
                       <SenatorDropdown
                       value={this.state.senatorSearch} 
@@ -277,23 +277,13 @@ render() {
                       </SenatorDropdown>
                       )}
                       </Col>
-                      
-                    <Col size="xs-3 sm-2">
-                      <Button
-                        onClick={this.handleSubmit}
-                        type="success"
-                        className="input-lg"
-                      >
-                        Search
-                      </Button>
-                    </Col>
-                  </Row>
+                      </Row>
+
                 </Container>
               </form>
-            </Col>
-          </Row>
+           
           <Row>
-          <Col size="xs-12 sm-10">
+          <Col size="lg-12">
           {!this.state.senatorsArrived ? (
                     <p></p>
                 ) : (
@@ -317,14 +307,30 @@ render() {
           </Col>
           </Row>
 
+{/*<<<<<<< HEAD */}
+            <Row>
+                      
+                    <Col size="lg-12">
+                      <Button
+                        onClick={this.handleSubmit}
+                        type="success"
+                        className="input-lg"
+                      >
+                        SEARCH
+                      </Button>
+                    </Col>
+{/*// =======
                   <Row>
                   <Col size='xs-12'>
                     <h1>Search senators by name or state to find their verified social media accounts and contact information!</h1>
                   </Col>
-                  </Row>
+>>>>>>> Development*/}
+                  
+            </Row>
           
      
         </Container>
+        <Footer />
       </div>
     );
   }

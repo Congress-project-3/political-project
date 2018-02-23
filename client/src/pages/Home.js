@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 import { Container, Row, Col } from "../components/Grid";
 import Button from "../components/Button";
 import Input from "../components/Input";
@@ -54,6 +55,23 @@ render() {
     <Container style={{ marginTop: 30 }}>
      
     
+{/*<<<<<<< HEAD */}
+       <div className="funcList">
+    
+        <Row>
+        <Col size="lg-12">
+        <span className="glyphicon glyphicon-search"></span>
+        </Col>
+        </Row>
+
+          
+          <Row>
+          <Col size="lg-12">
+         
+          <a className= "redLink" href="/searchvotes">Search a senator to see all of their most recent votes.</a>
+           
+     
+{/*=======
       <Row>
 
         <Col size="md-7">
@@ -65,36 +83,72 @@ render() {
            <li><a className= "redLink" href="/finddistrict">Use your address to find out who your local representative is.</a></li>
            </ul>
            </div>
+>>>>>>> Development */}
            </Col>
-        <form id="emailthing">
-        <Col size="md-4">
-        <Input
-        name="email"
-        value={this.state.email}
-        type="email"
-        onChange={this.handleInputChange}
-        placeholder="Sign up for our monthly newsletter!"
-        />
+           </Row>
 
-        </Col>
-        <Col size="md-1">
-        <Button
-        onClick={this.handleFormSubmit}
-        type="success"
-        className="input-lg"
-        >Submit</Button>
-        </Col>
-        </form>  
-      </Row>
-      
+           <Row>
+           <Col size="lg-12">
+           </Col>
+          </Row>
+          
+          <Row>
+          <Col size="lg-12">
+          <span className="glyphicon glyphicon-thumbs-up"></span>
+          </Col>
+          </Row>
+          
+          <Row>
+          <Col size="lg-12">
+          
+           <a className= "redLink" href="/compare">See the per centage rate of agreement between any two Senators.</a>
+            
+           </Col>
+           </Row>
 
+          <Row>
+           <Col size="lg-12">
+           </Col>
+          </Row>
 
-   
-      
+          <Row>
+          <Col size="lg-12">
+          <span className="glyphicon glyphicon-user"></span>
+          </Col>
+          </Row>
+          
+          <Row>
+          <Col size="lg-12">
+           
+           <a className= "redLink" href="/searsenator">Find Senators by name or state to access their personal social media accounts.</a>
+           
+           </Col>
+           </Row>
 
+           <Row>
+           <Col size="lg-12">
+           </Col>
+          </Row>
+           
+           <Row>
+          <Col size="lg-12">
+          <span className="glyphicon glyphicon-home"></span>
+          </Col>
+          </Row>
+          
+           <Row>
+           <Col size="lg-12">
+           
+           <a className= "redLink" href="/finddistrict">Use your address to find out who your local representative is.</a>
+           
+           </Col>
+           </Row>
+
+           </div>
       <Row>
-        <Col size="md-7">
-          <h2>Recent News</h2>
+      <div id="newsTick">
+        <Col size="lg-12">
+          <h3>Recent Congress News:</h3>
           <NewsList>
               {this.state.articles.map(article => {
                     return (
@@ -111,15 +165,19 @@ render() {
           </NewsList>
           </Col>
         
-      </Row> 
+      </div>
+      </Row>
 
       
    
     </Container>
+    <Footer />
   </div>
+  
   );
 };
 };
+
 
 
 export default Home;

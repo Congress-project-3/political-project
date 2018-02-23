@@ -8,33 +8,40 @@ const Nav = props =>
   <nav className="navbar navbar-default">
     <div className="container-fluid">
       <div className="navbar-header">
-      <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span className="icon-bar"></span>
-        <span className="icon-bar"></span>
-        <span className="icon-bar"></span> 
-      </button>
+      {/*<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span className="icon-bar">Search Votes</span>
+        <span className="icon-bar">Search Sentors</span>
+        <span className="icon-bar">Search Agreement Rate</span>
+        <span className="icon-bar">Search By District</span>  
+      </button>*/}
         <Link className="navbar-brand" to="/">
+{/*<<<<<<< HEAD
+        <img src={require("./eyenav2.jpg")} id="navLogo" />
+======= */}
 
 
            <img src={require("./eyenav2.jpg")} id="navLogo" alt="Blink first logo"/>
+{/*>>>>>>> Development*/}
         </Link>
       </div>
 
-      <div className="collapse navbar-collapse" id="myNavbar">
-      <ul className="nav navbar-nav">
+      <div id="myNavbar">
+      <ul className="nav navbar-nav navItem">
         <li
           className={
             window.location.pathname === "/" ||
-            window.location.pathname === "/about"
+            window.location.pathname === "/"
               ? "active"
               : ""
           }
         >
+
           
         </li>
         <li
           className={window.location.pathname === "/searchvotes" ? "active" : ""}
         >
+
           <Link to="/searchvotes">Search Votes</Link>
         </li>
         <li className={window.location.pathname === "/compare" ? "active" : ""}>
@@ -52,7 +59,11 @@ const Nav = props =>
 
       </ul>
       <ul className="nav navbar-nav navbar-right">
-        <li><a href="/api/google"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+{/*<<<<<<< HEAD
+        <li><a href="/api/google"><span className="glyphicon glyphicon-log-in glyphnav"></span>Login</a></li>
+======= */}
+        <li><a href="/api/google"><span style={{left: '-6px'}} className="glyphicon glyphicon-log-in"></span> Login</a></li>
+{/*>>>>>>> Development */}
       </ul>
     </div>
   </div>

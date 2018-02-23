@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import API from "../utils/API";
@@ -105,11 +106,11 @@ render() {
              )}
         <Container>
           <Row>
-            <Col size="md-12">
+            <Col size="lg-12">
               <form>
                 <Container>
                   <Row>
-                    <Col size="sm-4">
+                    <Col size="sm-3">
                       <Input
                         name="address"
                         value={this.state.address}
@@ -118,7 +119,7 @@ render() {
                         placeholder="Address"
                       />
                       </Col>
-                      <Col size="sm-4">
+                      <Col size="sm-3">
                       <Input
                         name="city"
                         value={this.state.city}
@@ -127,7 +128,7 @@ render() {
                         placeholder="City"
                       />
                       </Col>
-                      <Col size="sm-2">
+                      <Col size="sm-3">
                       <Input
                         name="stateAbbrev"
                         value={this.state.stateAbbrev}
@@ -138,13 +139,13 @@ render() {
                         maxLength="2"
                       />
                       </Col>
-                    <Col size="xs-3 sm-2">
+                    <Col size="sm-3">
                       <Button
                         onClick={this.handleFormSubmit}
                         type="success"
                         className="input-lg"
                       >
-                        Search
+                        SEARCH
                       </Button>
                     </Col>
                   </Row>
@@ -152,15 +153,19 @@ render() {
               </form>
             </Col>
           </Row>
-                <Row>
+                {/*<Row>
                   <Col size='xs-12'>
                     <h1>Use your address to find out who your local representative is!</h1>
                   </Col>
-                  </Row>
+                </Row>*/}
           
         </Container>
+
+      <Footer />  
       </div>
+
     );
+
   }
 }
 
