@@ -60,7 +60,7 @@ const OpinionFormItem = props => {
                         type="success"
                         className="input-lg"
                       >
-                        Submit Opinion
+                        SUBMIT OPINION
                       </Button>
 
 
